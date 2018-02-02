@@ -1,0 +1,33 @@
+version: "3.1"
+services:
+    mysql:
+        image: mysql:5.7
+        container_name: jobeet-mysql
+        working_dir: /application
+        volumes:
+            - .:/application
+        environment:
+            - MYSQL_ROOT_PASSWORD=password
+            - MYSQL_DATABASE=jobeet
+            - MYSQL_USER=user
+            - MYSQL_PASSWORD=password
+        ports:
+            - 3306:3306
+
+    webserver:
+        image: nginx:alpine
+        container_name: jobeet-webserver
+        working_dir: /application
+        volumes:
+            - .:/application
+            - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+        ports:
+            - 80:80
+
+    php-fpm:
+        build: docker/php-fpm
+        container_name: jobeet-php-fpm
+        working_dir: /application
+        volumes:
+            - .:/application
+            - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
