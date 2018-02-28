@@ -12,7 +12,7 @@
             <tr>
                 <td>{{ job.location }}</td>
                 <td>
-                    <a href="#">
+                    <a href="{{ path('job.show', {id: job.id}) }}">
                         {{ job.position }}
                     </a>
                 </td>
