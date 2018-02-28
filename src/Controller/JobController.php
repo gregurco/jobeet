@@ -3,19 +3,18 @@
 namespace App\Controller;
 
 use App\Entity\Job;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @Route("job")
- */
 class JobController extends AbstractController
 {
     /**
      * Lists all job entities.
      *
      * @Route("/", name="job.list")
+     * @Method("GET")
      *
      * @return Response
      */
@@ -31,7 +30,8 @@ class JobController extends AbstractController
     /**
      * Finds and displays a job entity.
      *
-     * @Route("/{id}", name="job.show")
+     * @Route("job/{id}", name="job.show", requirements={"id" = "\d+"})
+     * @Method("GET")
      *
      * @param Job $job
      *
