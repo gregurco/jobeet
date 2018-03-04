@@ -19,6 +19,8 @@ class JobController extends AbstractController
      *
      * @param EntityManagerInterface $em
      *
+     * @param EntityManagerInterface $em
+     *
      * @return Response
      */
     public function list(EntityManagerInterface $em) : Response
