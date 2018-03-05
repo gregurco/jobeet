@@ -39,6 +39,8 @@ class JobController extends AbstractController
      *
      * @Entity("job", expr="repository.findActiveJob(id)")
      *
+     * @Entity("job", expr="repository.findActiveJob(id)")
+     *
      * @param Job $job
      *
      * @return Response
