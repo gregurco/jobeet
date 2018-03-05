@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Job;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 
 class JobRepository extends EntityRepository
 {
@@ -25,5 +26,23 @@ class JobRepository extends EntityRepository
         }
 
         return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * @param int $id
+     *
+     * @throws NonUniqueResultException
+     *
+     * @return Job|null
+     */
+    public function findActiveJob(int $id) : ?Job
+    {
+        return $this->createQueryBuilder('j')
+            ->where('j.id = :id')
+            ->andWhere('j.expiresAt > :date')
+            ->setParameter('id', $id)
+            ->setParameter('date', new \DateTime())
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 }
