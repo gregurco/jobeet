@@ -3,10 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  * @ORM\Table(name="categories")
  */
 class Category
@@ -81,6 +82,18 @@ class Category
     public function getJobs()
     {
         return $this->jobs;
+    }
+
+    /**
+     * @return Job[]|ArrayCollection
+     */
+    public function getActiveJobs()
+    {
+        $criteria = Criteria::create()
+            ->andWhere(Criteria::expr()->gt('expiresAt', new \DateTime()))
+            ->setMaxResults(10);
+
+        return $this->jobs->matching($criteria);
     }
 
     /**

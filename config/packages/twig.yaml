@@ -2,3 +2,5 @@ twig:
     paths: ['%kernel.project_dir%/templates']
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        max_jobs_on_homepage: '%max_jobs_on_homepage%'
