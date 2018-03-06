@@ -89,11 +89,9 @@ class Category
      */
     public function getActiveJobs()
     {
-        $criteria = Criteria::create()
-            ->andWhere(Criteria::expr()->gt('expiresAt', new \DateTime()))
-            ->setMaxResults(10);
-
-        return $this->jobs->matching($criteria);
+        return $this->jobs->filter(function(Job $job) {
+            return $job->getExpiresAt() > new \DateTime();
+        });
     }
 
     /**
