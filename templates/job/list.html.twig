@@ -2,6 +2,8 @@
 
 {% block body %}
     {% for category in categories %}
+        <h4>{{ category.name }}</h4>
+
         {{ include('job/table.html.twig', {
             category: category,
             activeJobs: category.activeJobs|slice(0, max_jobs_on_homepage)

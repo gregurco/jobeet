@@ -5,5 +5,7 @@
 {% endblock %}
 
 {% block body %}
+    <h4>{{ category.name }}</h4>
+
     {{ include('job/table.html.twig', {category: category, activeJobs: category.activeJobs}) }}
 {% endblock %}
