@@ -1,0 +1,25 @@
+<table class="table text-center">
+    <caption class="h4">{{ category.name }}</caption>
+
+    <thead>
+    <tr>
+        <th class="active text-center">City</th>
+        <th class="active text-center">Position</th>
+        <th class="active text-center">Company</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for job in activeJobs %}
+        <tr>
+            <td>{{ job.location }}</td>
+            <td>
+                <a href="{{ path('job.show', {id: job.id}) }}">
+                    {{ job.position }}
+                </a>
+            </td>
+            <td>{{ job.company }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
