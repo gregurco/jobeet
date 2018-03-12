@@ -4,14 +4,18 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Entity\Job;
+use App\Form\JobType;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-class JobController extends AbstractController
+class JobController extends Controller
 {
     /**
      * Lists all job entities.
@@ -48,6 +52,51 @@ class JobController extends AbstractController
     {
         return $this->render('job/show.html.twig', [
             'job' => $job,
+        ]);
+    }
+
+    /**
+     * Creates a new job entity.
+     *
+     * @Route("/job/create", name="job.create")
+     * @Method({"GET", "POST"})
+     *
+     * @param Request $request
+     *
+     * @return RedirectResponse|Response
+     */
+    public function createAction(Request $request) : Response
+    {
+        $job = new Job();
+        $form = $this->createForm(JobType::class, $job);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile|null $logoFile */
+            $logoFile = $form->get('logo')->getData();
+
+            if ($logoFile instanceof UploadedFile) {
+                $fileName = md5(uniqid()) . '.' . $logoFile->guessExtension();
+
+                // moves the file to the directory where brochures are stored
+                $logoFile->move(
+                    $this->getParameter('jobs_directory'),
+                    $fileName
+                );
+
+                $job->setLogo($fileName);
+            }
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($job);
+            $em->flush();
+
+            return $this->redirectToRoute('job.list');
+        }
+
+        return $this->render('job/create.html.twig', [
+            'job' => $job,
+            'form' => $form->createView(),
         ]);
     }
 }
