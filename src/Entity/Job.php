@@ -11,6 +11,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Job
 {
+    const FULL_TIME_TYPE = 'full-time';
+    const PART_TIME_TYPE = 'part-time';
+    const FREELANCE_TYPE = 'freelance';
+
+    const TYPES = [
+        self::FULL_TIME_TYPE,
+        self::PART_TIME_TYPE,
+        self::FREELANCE_TYPE,
+    ];
+
     /**
      * @var int
      *
