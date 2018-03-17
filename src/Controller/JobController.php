@@ -62,10 +62,11 @@ class JobController extends Controller
      * @Method({"GET", "POST"})
      *
      * @param Request $request
+     * @param EntityManagerInterface $em
      *
      * @return RedirectResponse|Response
      */
-    public function createAction(Request $request) : Response
+    public function createAction(Request $request, EntityManagerInterface $em) : Response
     {
         $job = new Job();
         $form = $this->createForm(JobType::class, $job);
@@ -87,7 +88,6 @@ class JobController extends Controller
                 $job->setLogo($fileName);
             }
 
-            $em = $this->getDoctrine()->getManager();
             $em->persist($job);
             $em->flush();
 
