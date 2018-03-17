@@ -58,10 +58,11 @@ class JobController extends AbstractController
      * @Route("/job/create", name="job.create")
      *
      * @param Request $request
+     * @param EntityManagerInterface $em
      *
      * @return RedirectResponse|Response
      */
-    public function createAction(Request $request) : Response
+    public function createAction(Request $request, EntityManagerInterface $em) : Response
     {
         $job = new Job();
         $form = $this->createForm(JobType::class, $job);
@@ -83,7 +84,6 @@ class JobController extends AbstractController
                 $job->setLogo($fileName);
             }
 
-            $em = $this->getDoctrine()->getManager();
             $em->persist($job);
             $em->flush();
 
