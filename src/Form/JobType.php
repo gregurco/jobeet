@@ -16,8 +16,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Constraints\Email;
-use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
+use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -45,7 +45,7 @@ class JobType extends AbstractType
             ->add('logo', FileType::class, [
                 'required' => false,
                 'constraints' => [
-                    new File(['mimeTypes' => ['image/jpeg', 'image/png']]),
+                    new Image(),
                 ]
             ])
             ->add('url', UrlType::class, [
