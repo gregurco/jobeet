@@ -14,8 +14,12 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class JobType extends AbstractType
 {
@@ -28,9 +32,13 @@ class JobType extends AbstractType
             ->add('type', ChoiceType::class, [
                 'choices' => array_combine(Job::TYPES, Job::TYPES),
                 'expanded' => true,
+                'constraints' => [
+                    new NotBlank(),
+                ]
             ])
             ->add('company', TextType::class, [
                 'constraints' => [
+                    new NotBlank(),
                     new Length(['max' => 255]),
                 ]
             ])
@@ -46,11 +54,28 @@ class JobType extends AbstractType
                     new Length(['max' => 255]),
                 ]
             ])
-            ->add('position', TextType::class)
-            ->add('location', TextType::class)
-            ->add('description', TextType::class)
+            ->add('position', TextType::class, [
+                'constraints' => [
+                    new NotBlank(),
+                    new Length(['max' => 255]),
+                ]
+            ])
+            ->add('location', TextType::class, [
+                'constraints' => [
+                    new NotBlank(),
+                    new Length(['max' => 255]),
+                ]
+            ])
+            ->add('description', TextType::class, [
+                'constraints' => [
+                    new NotBlank(),
+                ]
+            ])
             ->add('howToApply', TextType::class, [
                 'label' => 'How to apply?',
+                'constraints' => [
+                    new NotBlank(),
+                ]
             ])
             ->add('public', ChoiceType::class, [
                 'choices'  => [
@@ -58,20 +83,45 @@ class JobType extends AbstractType
                     'No' => false,
                 ],
                 'label' => 'Public?',
+                'constraints' => [
+                    new NotBlank(),
+                ]
             ])
             ->add('activated', ChoiceType::class, [
                 'choices'  => [
                     'Yes' => true,
                     'No' => false,
                 ],
+                'constraints' => [
+                    new NotBlank(),
+                ]
             ])
-            ->add('email', EmailType::class)
-            ->add('expiresAt', DateTimeType::class)
+            ->add('email', EmailType::class, [
+                'constraints' => [
+                    new NotBlank(),
+                    new Email()
+                ]
+            ])
+            ->add('expiresAt', DateTimeType::class, [
+                'constraints' => [
+                    new NotBlank(),
+                    new DateTime(),
+                    new GreaterThanOrEqual('now')
+                ]
+            ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'name',
+                'constraints' => [
+                    new NotBlank(),
+                ]
             ])
-            ->add('token', TextType::class);
+            ->add('token', TextType::class, [
+                'constraints' => [
+                    new NotBlank(),
+                    new Length(['max' => 255]),
+                ]
+            ]);
     }
 
     /**
