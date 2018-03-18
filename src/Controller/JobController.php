@@ -5,17 +5,18 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Job;
 use App\Form\JobType;
+use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-class JobController extends Controller
+class JobController extends AbstractController
 {
     /**
      * Lists all job entities.
@@ -63,10 +64,11 @@ class JobController extends Controller
      *
      * @param Request $request
      * @param EntityManagerInterface $em
+     * @param FileUploader $fileUploader
      *
      * @return RedirectResponse|Response
      */
-    public function createAction(Request $request, EntityManagerInterface $em) : Response
+    public function createAction(Request $request, EntityManagerInterface $em, FileUploader $fileUploader) : Response
     {
         $job = new Job();
         $form = $this->createForm(JobType::class, $job);
@@ -77,13 +79,7 @@ class JobController extends Controller
             $logoFile = $form->get('logo')->getData();
 
             if ($logoFile instanceof UploadedFile) {
-                $fileName = md5(uniqid()) . '.' . $logoFile->guessExtension();
-
-                // moves the file to the directory where brochures are stored
-                $logoFile->move(
-                    $this->getParameter('jobs_directory'),
-                    $fileName
-                );
+                $fileName = $fileUploader->upload($logoFile);
 
                 $job->setLogo($fileName);
             }
