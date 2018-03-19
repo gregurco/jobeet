@@ -33,10 +33,14 @@
                     Edit
                 </a>
 
-                <a class="btn btn-default navbar-btn" href="#">
-                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                    Publish
-                </a>
+                {{ form_start(publishForm, {'attr': {'class': 'navbar-form navbar-left'}}) }}
+                    {{ form_widget(publishForm) }}
+
+                    <button type="submit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        Publish
+                    </button>
+                {{ form_end(deleteForm) }}
             {% endif %}
 
             <p class="navbar-text navbar-right">
