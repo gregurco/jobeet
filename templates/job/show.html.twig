@@ -2,7 +2,7 @@
 
 {% block body %}
     {% if hasControlAccess is defined and hasControlAccess %}
-        {% include 'job/control_panel.html.twig' with {'job': job} %}
+        {% include 'job/control_panel.html.twig' with {'job': job, 'deleteForm': deleteForm} %}
     {% endif %}
 
     <h1>Job</h1>

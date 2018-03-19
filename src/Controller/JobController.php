@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -130,9 +131,52 @@ class JobController extends AbstractController
      */
     public function previewAction(Job $job) : Response
     {
+        $deleteForm = $this->createDeleteForm($job);
+
         return $this->render('job/show.html.twig', [
             'job' => $job,
             'hasControlAccess' => true,
+            'deleteForm' => $deleteForm->createView(),
         ]);
+    }
+
+    /**
+     * Delete a job entity.
+     *
+     * @Route("job/{token}/delete", name="job.delete", requirements={"token" = "\w+"})
+     * @Method("DELETE")
+     *
+     * @param Request $request
+     * @param Job $job
+     * @param EntityManagerInterface $em
+     *
+     * @return Response
+     */
+    public function deleteAction(Request $request, Job $job, EntityManagerInterface $em) : Response
+    {
+        $form = $this->createDeleteForm($job);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $em->remove($job);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('job.list');
+    }
+
+    /**
+     * Creates a form to delete a job entity.
+     *
+     * @param Job $job
+     *
+     * @return FormInterface
+     */
+    private function createDeleteForm(Job $job) : FormInterface
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('job.delete', ['token' => $job->getToken()]))
+            ->setMethod('DELETE')
+            ->getForm();
     }
 }
