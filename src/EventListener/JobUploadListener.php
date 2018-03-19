@@ -40,6 +40,7 @@ class JobUploadListener
         $entity = $args->getEntity();
 
         $this->uploadFile($entity);
+        $this->fileToString($entity);
     }
 
     /**
@@ -49,13 +50,7 @@ class JobUploadListener
     {
         $entity = $args->getEntity();
 
-        if (!$entity instanceof Job) {
-            return;
-        }
-
-        if ($fileName = $entity->getLogo()) {
-            $entity->setLogo(new File($this->uploader->getTargetDirectory() . '/' . $fileName));
-        }
+        $this->stringToFile($entity);
     }
 
     /**
@@ -75,6 +70,36 @@ class JobUploadListener
             $fileName = $this->uploader->upload($logoFile);
 
             $entity->setLogo($fileName);
+        }
+    }
+
+    /**
+     * @param $entity
+     */
+    private function stringToFile($entity)
+    {
+        if (!$entity instanceof Job) {
+            return;
+        }
+
+        if ($fileName = $entity->getLogo()) {
+            $entity->setLogo(new File($this->uploader->getTargetDirectory() . '/' . $fileName));
+        }
+    }
+
+    /**
+     * @param $entity
+     */
+    private function fileToString($entity)
+    {
+        if (!$entity instanceof Job) {
+            return;
+        }
+
+        $logoFile = $entity->getLogo();
+
+        if ($logoFile instanceof File) {
+            $entity->setLogo($logoFile->getFilename());
         }
     }
 }
