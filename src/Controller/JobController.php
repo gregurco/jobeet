@@ -138,11 +138,13 @@ class JobController extends AbstractController
     public function previewAction(Job $job) : Response
     {
         $deleteForm = $this->createDeleteForm($job);
+        $publishForm = $this->createPublishForm($job);
 
         return $this->render('job/show.html.twig', [
             'job' => $job,
             'hasControlAccess' => true,
             'deleteForm' => $deleteForm->createView(),
+            'publishForm' => $publishForm->createView(),
         ]);
     }
 
@@ -171,6 +173,36 @@ class JobController extends AbstractController
     }
 
     /**
+     * Publish a job entity.
+     *
+     * @Route("job/{token}/publish", name="job.publish", requirements={"token" = "\w+"})
+     * @Method("POST")
+     *
+     * @param Request $request
+     * @param Job $job
+     * @param EntityManagerInterface $em
+     *
+     * @return Response
+     */
+    public function publishAction(Request $request, Job $job, EntityManagerInterface $em) : Response
+    {
+        $form = $this->createPublishForm($job);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $job->setActivated(true);
+
+            $em->flush();
+
+            $this->addFlash('notice', 'Your job was published');
+        }
+
+        return $this->redirectToRoute('job.preview', [
+            'token' => $job->getToken(),
+        ]);
+    }
+
+    /**
      * Creates a form to delete a job entity.
      *
      * @param Job $job
@@ -182,6 +214,21 @@ class JobController extends AbstractController
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('job.delete', ['token' => $job->getToken()]))
             ->setMethod('DELETE')
+            ->getForm();
+    }
+
+    /**
+     * Creates a form to publish a job entity.
+     *
+     * @param Job $job
+     *
+     * @return FormInterface
+     */
+    private function createPublishForm(Job $job) : FormInterface
+    {
+        return $this->createFormBuilder(['token' => $job->getToken()])
+            ->setAction($this->generateUrl('job.publish', ['token' => $job->getToken()]))
+            ->setMethod('POST')
             ->getForm();
     }
 }
