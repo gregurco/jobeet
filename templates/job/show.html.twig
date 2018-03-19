@@ -9,6 +9,12 @@
         } only %}
     {% endif %}
 
+    {% for message in app.flashes('notice') %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <h1>Job</h1>
 
     <div class="media" style="margin-top: 60px;">
