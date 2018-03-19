@@ -5,6 +5,7 @@ parameters:
     max_jobs_on_homepage: 10
     max_jobs_on_category: 20
     jobs_directory: '%kernel.project_dir%/public/uploads/jobs'
+    jobs_web_directory: '/uploads/jobs'
 
 services:
     # default configuration for services in *this* file
