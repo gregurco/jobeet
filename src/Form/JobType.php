@@ -20,6 +20,7 @@ use Symfony\Component\Validator\Constraints\GreaterThanOrEqual;
 use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
 
 class JobType extends AbstractType
 {
@@ -84,7 +85,7 @@ class JobType extends AbstractType
                 ],
                 'label' => 'Public?',
                 'constraints' => [
-                    new NotBlank(),
+                    new NotNull(),
                 ]
             ])
             ->add('activated', ChoiceType::class, [
@@ -93,7 +94,7 @@ class JobType extends AbstractType
                     'No' => false,
                 ],
                 'constraints' => [
-                    new NotBlank(),
+                    new NotNull(),
                 ]
             ])
             ->add('email', EmailType::class, [
