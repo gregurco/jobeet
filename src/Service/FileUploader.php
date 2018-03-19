@@ -24,7 +24,7 @@ class FileUploader
      */
     public function upload(UploadedFile $file) : string
     {
-        $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+        $fileName = \bin2hex(\random_bytes(10)) . '.' . $file->guessExtension();
 
         $file->move($this->targetDirectory, $fileName);
 
