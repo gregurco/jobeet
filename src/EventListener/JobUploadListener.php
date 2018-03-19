@@ -4,6 +4,7 @@ namespace App\EventListener;
 
 use App\Entity\Job;
 use App\Service\FileUploader;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
@@ -39,6 +40,22 @@ class JobUploadListener
         $entity = $args->getEntity();
 
         $this->uploadFile($entity);
+    }
+
+    /**
+     * @param LifecycleEventArgs $args
+     */
+    public function postLoad(LifecycleEventArgs $args)
+    {
+        $entity = $args->getEntity();
+
+        if (!$entity instanceof Job) {
+            return;
+        }
+
+        if ($fileName = $entity->getLogo()) {
+            $entity->setLogo(new File($this->uploader->getTargetDirectory() . '/' . $fileName));
+        }
     }
 
     /**
