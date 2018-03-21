@@ -7,7 +7,7 @@
 {% block body %}
     <h4>{{ category.name }}</h4>
 
-    {{ include('job/table.html.twig', {category: category, activeJobs: activeJobs}) }}
+    {% include 'job/table.html.twig' with {'category': category, 'activeJobs': activeJobs} only %}
 
     <div class="navigation text-center">
         {{ knp_pagination_render(activeJobs) }}
