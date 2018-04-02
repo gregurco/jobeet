@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use App\Service\CategoryService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -9,6 +10,19 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class CreateCategoryCommand extends Command
 {
+    /** @var CategoryService */
+    private $categoryService;
+
+    /**
+     * @param CategoryService $categoryService
+     */
+    public function __construct(CategoryService $categoryService)
+    {
+        $this->categoryService = $categoryService;
+
+        parent::__construct();
+    }
+
     protected function configure()
     {
         $this
@@ -41,5 +55,9 @@ class CreateCategoryCommand extends Command
 
         // retrieve the argument value using getArgument()
         $output->writeln('Name: '.$input->getArgument('name'));
+
+        $this->categoryService->create($input->getArgument('name'));
+
+        $output->writeln('Category successfully created!');
     }
 }
