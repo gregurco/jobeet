@@ -48,7 +48,7 @@ class CreateCategoryCommand extends Command
     protected function interact(InputInterface $input, OutputInterface $output)
     {
         if (!$input->getArgument('name')) {
-            $question = new Question('Please choose a name: ');
+            $question = new Question('<question>Please choose a name: </question>');
             $question->setValidator(function ($name) {
                 if (empty($name)) {
                     throw new \Exception('Name can not be empty');
@@ -80,6 +80,6 @@ class CreateCategoryCommand extends Command
 
         $this->categoryService->create($input->getArgument('name'));
 
-        $output->writeln('Category successfully created!');
+        $output->writeln('<fg=green>Category successfully created!</>');
     }
 }
