@@ -76,7 +76,7 @@ class CreateCategoryCommand extends Command
         ]);
 
         // retrieve the argument value using getArgument()
-        $output->writeln('Name: '.$input->getArgument('name'));
+        $output->writeln(sprintf('Name: %s', $input->getArgument('name')));
 
         $this->categoryService->create($input->getArgument('name'));
 
