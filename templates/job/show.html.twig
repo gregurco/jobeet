@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="col-sm-2">
-                    <i class="pull-right">posted on {{ job.createdat|date('m/d/Y') }}</i>
+                    <i class="pull-right">{{ 'job.show.posted_on'|trans({'%date%': job.createdat|date('m/d/Y')}) }}</i>
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
             <p>{{ job.description|nl2br }}</p>
 
             <p style="margin-top: 40px;">
-                <strong>How to apply?</strong>
+                <strong>{{ 'job.show.how_to_apply'|trans }}</strong>
             </p>
 
             <p>{{ job.howToApply }}</p>
@@ -54,7 +54,7 @@
                 <div class="col-sm-12 text-right">
                     <a class="btn btn-default" href="{{ path('job.list') }}">
                         <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-                        Back to list
+                        {{ 'job.show.back_to_list'|trans }}
                     </a>
                 </div>
             </div>
