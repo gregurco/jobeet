@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}Jobeet - Your best job board{% endblock %}</title>
+    <title>{% block title %}{{ 'job.base.title'|trans }}{% endblock %}</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
@@ -15,7 +15,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{ path('job.list') }}">Jobeet</a>
+            <a class="navbar-brand" href="{{ path('job.list') }}">{{ 'job.base.list'|trans }}</a>
         </div>
 
         <div class="collapse navbar-collapse">
@@ -36,7 +36,7 @@
 
                 <li>
                     <div>
-                        <a href="{{ path('job.create') }}" class="btn btn-default navbar-btn">Post a Job</a>
+                        <a href="{{ path('job.create') }}" class="btn btn-default navbar-btn">{{ 'job.base.create'|trans }}</a>
                     </div>
                 </li>
 
