@@ -1,0 +1,31 @@
+job:
+    base:
+        title: "Jobeet - Your best job board"
+        list: "Jobeet"
+        create: "Post a Job"
+    control_panel:
+        title: "Control Panel:"
+        delete_button: "Delete"
+        expired: "Expired"
+        expires_in: "Expires in <strong>%days%</strong> days"
+        extend: "Extend (for another 30 days)"
+        edit_button: "Edit"
+        publish_button: "Publish"
+        url: "[Bookmark this %link_start%URL%link_end% to manage this job in the future]"
+    create:
+        title: "Job creation"
+        submit_button: "Create"
+    edit:
+        title: "Job edit"
+        submit_button: "Edit"
+    show:
+        posted_on: "posted on %date%"
+        how_to_apply: "How to apply?"
+        back_to_list: "Back to list"
+    table:
+        city: "City"
+        position: "Position"
+        company: "Company"
+
+category:
+    title: "Jobs in the %category% category"
