@@ -27,7 +27,7 @@ class JobController extends AbstractController
      *
      * @return Response
      */
-    public function listAction(EntityManagerInterface $em) : Response
+    public function list(EntityManagerInterface $em) : Response
     {
         $categories = $em->getRepository(Category::class)->findWithActiveJobs();
 
@@ -48,7 +48,7 @@ class JobController extends AbstractController
      *
      * @return Response
      */
-    public function showAction(Job $job) : Response
+    public function show(Job $job) : Response
     {
         return $this->render('job/show.html.twig', [
             'job' => $job,
