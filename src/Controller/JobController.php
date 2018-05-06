@@ -107,7 +107,7 @@ class JobController extends AbstractController
      *
      * @return Response
      */
-    public function editAction(Request $request, Job $job, EntityManagerInterface $em) : Response
+    public function edit(Request $request, Job $job, EntityManagerInterface $em) : Response
     {
         $form = $this->createForm(JobType::class, $job);
         $form->handleRequest($request);
@@ -135,7 +135,7 @@ class JobController extends AbstractController
      *
      * @return Response
      */
-    public function previewAction(Job $job) : Response
+    public function preview(Job $job) : Response
     {
         $deleteForm = $this->createDeleteForm($job);
         $publishForm = $this->createPublishForm($job);
@@ -159,7 +159,7 @@ class JobController extends AbstractController
      *
      * @return Response
      */
-    public function deleteAction(Request $request, Job $job, EntityManagerInterface $em) : Response
+    public function delete(Request $request, Job $job, EntityManagerInterface $em) : Response
     {
         $form = $this->createDeleteForm($job);
         $form->handleRequest($request);
@@ -176,7 +176,6 @@ class JobController extends AbstractController
      * Publish a job entity.
      *
      * @Route("job/{token}/publish", name="job.publish", requirements={"token" = "\w+"})
-     * @Method("POST")
      *
      * @param Request $request
      * @param Job $job
@@ -184,7 +183,7 @@ class JobController extends AbstractController
      *
      * @return Response
      */
-    public function publishAction(Request $request, Job $job, EntityManagerInterface $em) : Response
+    public function publish(Request $request, Job $job, EntityManagerInterface $em) : Response
     {
         $form = $this->createPublishForm($job);
         $form->handleRequest($request);
