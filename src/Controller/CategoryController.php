@@ -24,7 +24,7 @@ class CategoryController extends Controller
      *
      * @return Response
      */
-    public function showAction(
+    public function show(
         Category $category,
         int $page,
         PaginatorInterface $paginator
