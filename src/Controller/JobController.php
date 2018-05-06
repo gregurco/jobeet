@@ -27,7 +27,7 @@ class JobController extends AbstractController
      *
      * @return Response
      */
-    public function listAction(EntityManagerInterface $em) : Response
+    public function list(EntityManagerInterface $em) : Response
     {
         $categories = $em->getRepository(Category::class)->findWithActiveJobs();
 
@@ -48,7 +48,7 @@ class JobController extends AbstractController
      *
      * @return Response
      */
-    public function showAction(Job $job) : Response
+    public function show(Job $job) : Response
     {
         return $this->render('job/show.html.twig', [
             'job' => $job,
@@ -66,7 +66,7 @@ class JobController extends AbstractController
      *
      * @return RedirectResponse|Response
      */
-    public function createAction(Request $request, EntityManagerInterface $em) : Response
+    public function create(Request $request, EntityManagerInterface $em) : Response
     {
         $job = new Job();
         $form = $this->createForm(JobType::class, $job);
@@ -100,7 +100,7 @@ class JobController extends AbstractController
      *
      * @return Response
      */
-    public function editAction(Request $request, Job $job, EntityManagerInterface $em) : Response
+    public function edit(Request $request, Job $job, EntityManagerInterface $em) : Response
     {
         $form = $this->createForm(JobType::class, $job);
         $form->handleRequest($request);
@@ -129,7 +129,7 @@ class JobController extends AbstractController
      *
      * @return Response
      */
-    public function previewAction(Job $job) : Response
+    public function preview(Job $job) : Response
     {
         $deleteForm = $this->createDeleteForm($job);
         $publishForm = $this->createPublishForm($job);
@@ -154,7 +154,7 @@ class JobController extends AbstractController
      *
      * @return Response
      */
-    public function deleteAction(Request $request, Job $job, EntityManagerInterface $em) : Response
+    public function delete(Request $request, Job $job, EntityManagerInterface $em) : Response
     {
         $form = $this->createDeleteForm($job);
         $form->handleRequest($request);
@@ -179,7 +179,7 @@ class JobController extends AbstractController
      *
      * @return Response
      */
-    public function publishAction(Request $request, Job $job, EntityManagerInterface $em) : Response
+    public function publish(Request $request, Job $job, EntityManagerInterface $em) : Response
     {
         $form = $this->createPublishForm($job);
         $form->handleRequest($request);
