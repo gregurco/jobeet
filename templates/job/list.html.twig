@@ -9,8 +9,7 @@
         </h4>
 
         {% include 'job/table.html.twig' with {
-            'category': category,
-            'activeJobs': category.activeJobs|slice(0, max_jobs_on_homepage)
+            'jobs': category.activeJobs|slice(0, max_jobs_on_homepage)
         } only %}
     {% endfor %}
 {% endblock %}
