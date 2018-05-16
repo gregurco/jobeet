@@ -3,9 +3,6 @@ services:
     mysql:
         image: mysql:5.7
         container_name: jobeet-mysql
-        working_dir: /application
-        volumes:
-            - .:/application
         environment:
             - MYSQL_ROOT_PASSWORD=password
             - MYSQL_DATABASE=jobeet
@@ -15,12 +12,9 @@ services:
             - 3306:3306
 
     webserver:
-        image: nginx:alpine
+        build: docker/ci/nginx
         container_name: jobeet-webserver
         working_dir: /application
-        volumes:
-            - .:/application
-            - ./docker/dev/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
         ports:
             - 80:80
 
@@ -31,6 +25,3 @@ services:
         environment:
             - XDEBUG_CONFIG=idekey=PHPSTORM
             - PHP_IDE_CONFIG=serverName=jobeet
-        volumes:
-            - .:/application
-            - ./docker/dev/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini

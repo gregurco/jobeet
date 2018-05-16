@@ -15,8 +15,8 @@ jobs:
       - run:
           name: Run tests
           command: |
-            docker-compose up -d
-            docker-compose run php-fpm php bin/phpunit
+            docker-compose -f docker-compose.ci.yml up -d
+            docker-compose -f docker-compose.ci.yml run php-fpm php bin/phpunit
 
       - deploy:
           name: Push application Docker image
