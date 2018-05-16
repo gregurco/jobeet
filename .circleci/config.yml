@@ -15,17 +15,17 @@ jobs:
             pip install docker-compose==1.19.0
 
       - run:
-          name: Run tests
+          name: Build containers and push application to Docker Hub
           command: |
-            docker-compose -f docker-compose.ci.yml up -d
+            docker-compose -f docker-compose.ci.yml up -d --build --force-reacreate
             docker-compose -f docker-compose.ci.yml run php-fpm composer install
-
-      - deploy:
-          name: Push application Docker image
-          command: |
             docker login -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
             docker tag dockerapp_php-fpm $DOCKER_HUB_USER_ID/jobeet:$CIRCLE_SHA1
             docker tag dockerapp_php-fpm $DOCKER_HUB_USER_ID/jobeet:latest
             docker push $DOCKER_HUB_USER_ID/jobeet:$CIRCLE_SHA1
             docker push $DOCKER_HUB_USER_ID/jobeet:latest
+
+      - deploy:
+          name: Deploy applocation to Digital Ocean
+          command: |
             ssh -o "StrictHostKeyChecking no" $DEPLOY_USER@$DEPLOY_HOST "cd /opt/jobeet && docker-compose pull php-fpm"
