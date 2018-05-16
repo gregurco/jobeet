@@ -28,6 +28,6 @@ jobs:
             docker tag dockerapp_php-fpm $DOCKER_HUB_USER_ID/jobeet:latest
             docker push $DOCKER_HUB_USER_ID/jobeet:$CIRCLE_SHA1
             docker push $DOCKER_HUB_USER_ID/jobeet:latest
-            ssh $DEPLOY_USER@$DEPLOY_HOST
+            ssh -o "StrictHostKeyChecking no" $DEPLOY_USER@$DEPLOY_HOST
             cd /opt/jobeet
             docker-compose pull php-fpm
