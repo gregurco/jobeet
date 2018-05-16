@@ -91,7 +91,6 @@ class JobController extends AbstractController
         }
 
         return $this->render('job/create.html.twig', [
-            'job' => $job,
             'form' => $form->createView(),
         ]);
     }
@@ -164,7 +163,7 @@ class JobController extends AbstractController
         $form = $this->createDeleteForm($job);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em->remove($job);
             $em->flush();
         }
@@ -188,7 +187,7 @@ class JobController extends AbstractController
         $form = $this->createPublishForm($job);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $job->setActivated(true);
 
             $em->flush();
