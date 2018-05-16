@@ -12,14 +12,18 @@ services:
             - 3306:3306
 
     webserver:
-        build: docker/ci/nginx
+        build:
+            context: .
+            dockerfile: docker/ci/nginx/Dockerfile
         container_name: jobeet-webserver
         working_dir: /application
         ports:
             - 80:80
 
     php-fpm:
-        build: docker/dev/php-fpm
+        build:
+            context: .
+            dockerfile: docker/dev/php-fpm/Dockerfile
         container_name: jobeet-php-fpm
         working_dir: /application
         environment:
