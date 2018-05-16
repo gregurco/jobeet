@@ -17,6 +17,7 @@ jobs:
           command: |
             docker-compose up -d
             docker-compose run php-fpm php bin/phpunit
+
       - deploy:
           name: Push application Docker image
           command: |
