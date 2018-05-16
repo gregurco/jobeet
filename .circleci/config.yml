@@ -7,16 +7,18 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+
       - run:
           name: Install dependencies
           command: |
             apk add --no-cache py-pip=9.0.1-r1
             pip install docker-compose==1.19.0
+
       - run:
           name: Run tests
           command: |
             docker-compose -f docker-compose.ci.yml up -d
-            docker-compose -f docker-compose.ci.yml run php-fpm php -v
+            docker-compose -f docker-compose.ci.yml run php-fpm composer install
 
       - deploy:
           name: Push application Docker image
@@ -26,3 +28,6 @@ jobs:
             docker tag dockerapp_php-fpm $DOCKER_HUB_USER_ID/jobeet:latest
             docker push $DOCKER_HUB_USER_ID/jobeet:$CIRCLE_SHA1
             docker push $DOCKER_HUB_USER_ID/jobeet:latest
+            ssh $DEPLOY_USER@$DEPLOY_HOST
+            cd /opt/jobeet
+            docker-compose pull php-fpm
