@@ -20,10 +20,10 @@ jobs:
             docker-compose -f docker-compose.ci.yml up -d --build --force-recreate
             docker-compose -f docker-compose.ci.yml run php-fpm composer install
             docker-compose -f docker-compose.ci.yml ps
-            docker commit jobeet-php-fpm gregurco/jobeet
+            docker commit jobeet-php-fpm gregurco/jobeet:$CIRCLE_SHA1
+            docker commit jobeet-php-fpm gregurco/jobeet:latest
+            docker docker images
             docker login -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
-            docker tag jobeet-php-fpm $DOCKER_HUB_USER_ID/jobeet:$CIRCLE_SHA1
-            docker tag jobeet-php-fpm $DOCKER_HUB_USER_ID/jobeet:latest
             docker push $DOCKER_HUB_USER_ID/jobeet:$CIRCLE_SHA1
             docker push $DOCKER_HUB_USER_ID/jobeet:latest
 
