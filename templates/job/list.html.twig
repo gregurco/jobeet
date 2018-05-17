@@ -2,6 +2,8 @@
 
 {% block body %}
     {% for category in categories %}
+        <h4>Hello World</h4>
+
         <h4>
             <a href="{{ path('category.show', {slug: category.slug}) }}">
                 {{ category.name }}
