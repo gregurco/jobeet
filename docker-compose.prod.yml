@@ -23,7 +23,7 @@ services:
         image: gregurco/jobeet:latest
         container_name: jobeet-php-fpm
         environment:
-            APP_ENV: prod
-            APP_SECRET: 0727f68770f1cb399e816a33d5269884
-            MAILER_URL: null://localhost
-            DATABASE_URL: mysql://user:password@mysql:3306/jobeet
+            - APP_ENV=prod
+            - APP_SECRET=0727f68770f1cb399e816a33d5269884
+            - MAILER_URL=null://localhost
+            - DATABASE_URL=mysql://user:password@mysql:3306/jobeet

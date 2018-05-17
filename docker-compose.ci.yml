@@ -25,5 +25,5 @@ services:
             dockerfile: docker/ci/php-fpm/Dockerfile
         container_name: jobeet-php-fpm
         environment:
-            - XDEBUG_CONFIG=idekey=PHPSTORM
-            - PHP_IDE_CONFIG=serverName=jobeet
+            - APP_ENV=prod
+            - APP_SECRET=0727f68770f1cb399e816a33d5269884
