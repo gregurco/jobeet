@@ -18,7 +18,7 @@ jobs:
           name: Build containers and push application to Docker Hub
           command: |
             docker-compose -f docker-compose.ci.yml up -d --build --force-recreate
-            docker-compose -f docker-compose.ci.yml run php-fpm composer install
+            docker-compose -f docker-compose.ci.yml exec php-fpm composer install
             docker-compose -f docker-compose.ci.yml ps
             docker commit jobeet-php-fpm gregurco/jobeet:$CIRCLE_SHA1
             docker commit jobeet-php-fpm gregurco/jobeet:latest
