@@ -18,7 +18,6 @@ jobs:
           name: Build containers and push application to Docker Hub
           command: |
             docker-compose -f docker-compose.ci.yml up -d --build --force-recreate
-            docker-compose -f docker-compose.ci.yml exec php-fpm composer install
             docker-compose -f docker-compose.ci.yml ps
             docker commit jobeet-php-fpm gregurco/jobeet:$CIRCLE_SHA1
             docker commit jobeet-php-fpm gregurco/jobeet:latest
@@ -30,4 +29,4 @@ jobs:
       - deploy:
           name: Deploy applocation to Digital Ocean
           command: |
-            ssh -o "StrictHostKeyChecking no" $DEPLOY_USER@$DEPLOY_HOST "cd /opt/jobeet && docker-compose pull php-fpm"
+            ssh -o "StrictHostKeyChecking no" $DEPLOY_USER@$DEPLOY_HOST "cd /opt/jobeet && docker-compose -f docker-compose.prod.yml up -d --build --force-recreate php-fpm"
