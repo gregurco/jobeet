@@ -29,4 +29,4 @@ jobs:
       - deploy:
           name: Deploy applocation to Digital Ocean
           command: |
-            ssh -o "StrictHostKeyChecking no" $DEPLOY_USER@$DEPLOY_HOST "cd /opt/jobeet && docker-compose -f docker-compose.prod.yml up -d --build --force-recreate php-fpm"
+            ssh -o "StrictHostKeyChecking no" $DEPLOY_USER@$DEPLOY_HOST "cd /opt/jobeet && docker-compose -f docker-compose.prod.yml pull php-fpm && docker-compose -f docker-compose.prod.yml up -d --build --force-recreate php-fpm"
