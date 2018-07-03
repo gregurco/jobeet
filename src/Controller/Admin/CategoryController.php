@@ -59,7 +59,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * Create category.
+     * Edit category.
      *
      * @Route("/admin/category/{id}/edit", name="admin.category.edit", methods="GET|POST")
      *
