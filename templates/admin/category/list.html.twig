@@ -1,0 +1,43 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="active">Name</th>
+            <th class="active">Position</th>
+            <th class="active">Jobs</th>
+            <th class="active">Affiliates</th>
+            <th class="active">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.name }}</td>
+                <td>{{ category.slug }}</td>
+                <td>{{ category.jobs.count }}</td>
+                <td>{{ category.affiliates.count }}</td>
+                <td>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="{{ path('admin.category.edit', {id: category.id}) }}" class="btn btn-default">Edit</a>
+                        </li>
+
+                        <li>
+                            <form method="post" action="{{ path('admin.category.delete', {id: category.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ category.id) }}">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin.category.create') }}" class="btn btn-success">Create new</a>
+{% endblock %}
