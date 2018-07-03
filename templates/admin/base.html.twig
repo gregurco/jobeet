@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Jobeet - Your best job board{% endblock %}</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    {% block stylesheets %}{% endblock %}
+
+    {% block javascripts %}{% endblock %}
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{ path('admin.category.list') }}">Jobeet Admin</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <ul class="nav nav-pills nav-stacked nav-pills-stacked-example">
+                <li role="presentation">
+                    <a href="{{ path('admin.category.list') }}">Categories</a>
+                </li>
+
+                <li role="presentation">
+                    <a href="#">Jobs</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-10">
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
