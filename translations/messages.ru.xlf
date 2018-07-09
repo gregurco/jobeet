@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="AITuZlO" resname="category.title">
+        <source>Jobs in the %category% category</source>
+        <target>Вакансия из категории - %category%</target>
+      </trans-unit>
+      <trans-unit id="YM.OFL6" resname="job.base.list">
+        <source>Jobeet</source>
+        <target>Jobeet</target>
+      </trans-unit>
+      <trans-unit id="Fipexar" resname="job.base.create">
+        <source>Post a Job</source>
+        <target>Создать вакансию</target>
+      </trans-unit>
+      <trans-unit id="SPM6JVE" resname="job.base.title">
+        <source>Jobeet - Your best job board</source>
+        <target>Jobeet - лучшая платформа для поиска работы</target>
+      </trans-unit>
+      <trans-unit id="T_BRshW" resname="job.create.title">
+        <source>Job creation</source>
+        <target>Создание вакансии</target>
+      </trans-unit>
+      <trans-unit id="A.V.QZk" resname="job.create.submit_button">
+        <source>Create</source>
+        <target>Создать</target>
+      </trans-unit>
+      <trans-unit id="zBxeZSL" resname="job.edit.title">
+        <source>Job edit</source>
+        <target>Редактирование вакансии</target>
+      </trans-unit>
+      <trans-unit id="giWp7cd" resname="job.table.city">
+        <source>City</source>
+        <target>Город</target>
+      </trans-unit>
+      <trans-unit id="OsNRU2h" resname="job.table.position">
+        <source>Position</source>
+        <target>Должность</target>
+      </trans-unit>
+      <trans-unit id="ncCvLwc" resname="job.table.company">
+        <source>Company</source>
+        <target>Компания</target>
+      </trans-unit>
+      <trans-unit id="OmrSa09" resname="job.control_panel.title">
+        <source>Control Panel:</source>
+        <target>Контрольная панель:</target>
+      </trans-unit>
+      <trans-unit id="B05GDP6" resname="job.control_panel.delete_button">
+        <source>Delete</source>
+        <target>Удалить</target>
+      </trans-unit>
+      <trans-unit id="NKZ7g84" resname="job.control_panel.expired">
+        <source>Expired</source>
+        <target>Истекло</target>
+      </trans-unit>
+      <trans-unit id="HgCurKr" resname="job.control_panel.expires_in">
+        <source>Expires in %days% days</source>
+        <target>Истекает через %days% дней</target>
+      </trans-unit>
+      <trans-unit id="uEbwuIX" resname="job.control_panel.extend">
+        <source>Extend (for another 30 days)</source>
+        <target>Продлить (ещё на 30 дней)</target>
+      </trans-unit>
+      <trans-unit id="kgOFzxw" resname="job.control_panel.edit_button">
+        <source>Edit</source>
+        <target>Редактировать</target>
+      </trans-unit>
+      <trans-unit id="tcwmYe_" resname="job.control_panel.publish_button">
+        <source>Publish</source>
+        <target>Опубликовать</target>
+      </trans-unit>
+      <trans-unit id="CRo0sXR" resname="job.control_panel.url">
+        <source>[Bookmark this %link_start%URL%link_end% to manage this job in the future]</source>
+        <target>[Сохраните этот %link_start%URL%link_end% в закладках, чтобы в дальнейшем редактировать данную вакансию]</target>
+      </trans-unit>
+      <trans-unit id="zKWnmf6" resname="job.show.posted_on">
+        <source>posted on %date%</source>
+        <target>создана %date%</target>
+      </trans-unit>
+      <trans-unit id="dfk7Ast" resname="job.show.how_to_apply">
+        <source>How to apply?</source>
+        <target>Как подать заявку?</target>
+      </trans-unit>
+      <trans-unit id="ON_r74W" resname="job.show.back_to_list">
+        <source>Back to list</source>
+        <target>Обратно к списку</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
