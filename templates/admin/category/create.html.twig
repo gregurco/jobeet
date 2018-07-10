@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Create new category</h1>
 
-    {% include 'admin/category/_form.html.twig' %}
+    {% include 'admin/category/_form.html.twig' with {'form': form} only %}
 
     <a href="{{ path('admin.category.list') }}" class="btn btn-default">
         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
