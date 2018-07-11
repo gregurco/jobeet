@@ -61,7 +61,7 @@ class CategoryController extends AbstractController
     /**
      * Edit category.
      *
-     * @Route("/admin/category/{id}/edit", name="admin.category.edit", methods="GET|POST")
+     * @Route("/admin/category/{id}/edit", name="admin.category.edit", methods="GET|POST", requirements={"id" = "\d+"})
      *
      * @param Request $request
      * @param EntityManagerInterface $em
@@ -89,7 +89,7 @@ class CategoryController extends AbstractController
     /**
      * Delete category.
      *
-     * @Route("/admin/category/{id}/delete", name="admin.category.delete", methods="DELETE")
+     * @Route("/admin/category/{id}/delete", name="admin.category.delete", methods="DELETE", requirements={"id" = "\d+"})
      *
      * @param Request $request
      * @param EntityManagerInterface $em
