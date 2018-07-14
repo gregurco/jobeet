@@ -35,7 +35,7 @@ class JobController extends AbstractController
             $em->getRepository(Job::class)->findAll(),
             $page,
             $this->getParameter('max_jobs_on_homepage')
-    );
+        );
 
         return $this->render('admin/job/list.html.twig', [
             'jobs' => $jobs,
@@ -73,7 +73,7 @@ class JobController extends AbstractController
     /**
      * Edit job.
      *
-     * @Route("/admin/job/{id}/edit", name="admin.job.edit", methods="GET|POST")
+     * @Route("/admin/job/{id}/edit", name="admin.job.edit", methods="GET|POST", requirements={"id" = "\d+"})
      *
      * @param Request $request
      * @param EntityManagerInterface $em
@@ -100,7 +100,7 @@ class JobController extends AbstractController
     /**
      * Delete job.
      *
-     * @Route("/admin/job/{id}/delete", name="admin.job.delete", methods="DELETE")
+     * @Route("/admin/job/{id}/delete", name="admin.job.delete", methods="DELETE", requirements={"id" = "\d+"})
      *
      * @param Request $request
      * @param EntityManagerInterface $em
