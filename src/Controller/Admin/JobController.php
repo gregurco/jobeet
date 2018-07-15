@@ -34,7 +34,7 @@ class JobController extends AbstractController
         $jobs = $paginator->paginate(
             $em->getRepository(Job::class)->findAll(),
             $page,
-            $this->getParameter('max_jobs_on_homepage')
+            $this->getParameter('max_per_page')
         );
 
         return $this->render('admin/job/list.html.twig', [
