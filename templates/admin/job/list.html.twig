@@ -3,14 +3,14 @@
 {% block body %}
     <table class="table">
         <thead>
-        <tr>
-            <th class="active">Company</th>
-            <th class="active">Position</th>
-            <th class="active">Location</th>
-            <th class="active">Email</th>
-            <th class="active">URL</th>
-            <th class="active">Activated</th>
-            <th class="active">Actions</th>
+        <tr class="active">
+            <th>Company</th>
+            <th>Position</th>
+            <th>Location</th>
+            <th>Email</th>
+            <th>URL</th>
+            <th>Activated</th>
+            <th>Actions</th>
         </tr>
         </thead>
 
@@ -23,13 +23,13 @@
                 <td>{{ job.email }}</td>
                 <td>{{ job.url }}</td>
                 <td>
-                    {% if  job.activated == '1' %}
+                    {% if job.activated %}
                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                     {% else %}
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     {% endif %}
                 </td>
-                <td>
+                <td class="text-nowrap">
                     <ul class="list-inline">
                         <li>
                             <a href="{{ path('admin.job.edit', {id: job.id}) }}" class="btn btn-default">Edit</a>
