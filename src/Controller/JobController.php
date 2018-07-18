@@ -55,8 +55,7 @@ class JobController extends AbstractController
     /**
      * Creates a new job entity.
      *
-     * @Route("/job/create", name="job.create")
-     * @Method({"GET", "POST"})
+     * @Route("/job/create", name="job.create", methods={"GET", "POST"})
      *
      * @param Request $request
      * @param EntityManagerInterface $em
@@ -87,8 +86,7 @@ class JobController extends AbstractController
     /**
      * Edit existing job entity
      *
-     * @Route("/job/{token}/edit", name="job.edit", requirements={"token" = "\w+"})
-     * @Method({"GET", "POST"})
+     * @Route("/job/{token}/edit", name="job.edit", methods={"GET", "POST"}, requirements={"token" = "\w+"})
      *
      * @param Request $request
      * @param Job $job
@@ -118,8 +116,7 @@ class JobController extends AbstractController
     /**
      * Finds and displays the preview page for a job entity.
      *
-     * @Route("job/{token}", name="job.preview", requirements={"token" = "\w+"})
-     * @Method("GET")
+     * @Route("job/{token}", name="job.preview", methods="GET", requirements={"token" = "\w+"})
      *
      * @param Job $job
      *
@@ -141,8 +138,7 @@ class JobController extends AbstractController
     /**
      * Delete a job entity.
      *
-     * @Route("job/{token}/delete", name="job.delete", requirements={"token" = "\w+"})
-     * @Method("DELETE")
+     * @Route("job/{token}/delete", name="job.delete", methods="DELETE", requirements={"token" = "\w+"})
      *
      * @param Request $request
      * @param Job $job
@@ -166,8 +162,7 @@ class JobController extends AbstractController
     /**
      * Publish a job entity.
      *
-     * @Route("job/{token}/publish", name="job.publish", requirements={"token" = "\w+"})
-     * @Method("POST")
+     * @Route("job/{token}/publish", name="job.publish", methods="POST", requirements={"token" = "\w+"})
      *
      * @param Request $request
      * @param Job $job
