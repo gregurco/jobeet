@@ -23,12 +23,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2">
+            {% set currentRouteName = app.request.get('_route') %}
+
             <ul class="nav nav-pills nav-stacked nav-pills-stacked-example">
-                <li role="presentation">
+                <li role="presentation" {% if currentRouteName starts with 'admin.category.' %}class="active"{% endif %}>
                     <a href="{{ path('admin.category.list') }}">Categories</a>
                 </li>
 
-                <li role="presentation">
+                <li role="presentation" {% if currentRouteName starts with 'admin.job.' %}class="active"{% endif %}>
                     <a href="{{ path('admin.job.list') }}">Jobs</a>
                 </li>
             </ul>
