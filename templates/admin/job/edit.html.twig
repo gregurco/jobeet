@@ -1,5 +1,15 @@
 {% extends 'admin/base.html.twig' %}
 
+{% form_theme form _self %}
+
+{% block _job_logo_widget %}
+    {% if form.vars.data %}
+        <img class="media-object" style="width:100px; height:100px;" src="{{ asset(jobs_web_directory ~ '/' ~ form.vars.data.filename) }}">
+    {% endif %}
+
+    {{ form_widget(form) }}
+{% endblock %}
+
 {% block body %}
     <h1>Edit job</h1>
 
