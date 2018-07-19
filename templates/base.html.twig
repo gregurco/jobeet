@@ -20,6 +20,14 @@
 
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li>
+                        <div>
+                            <a href="{{ path('admin.category.list') }}" class="btn btn-default navbar-btn">Admin Pavel</a>
+                        </div>
+                    </li>
+                {% endif %}
+
                 <li>
                     <div>
                         <a href="{{ path('job.create') }}" class="btn btn-default navbar-btn">Post a Job</a>
