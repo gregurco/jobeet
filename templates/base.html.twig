@@ -33,6 +33,10 @@
                         <a href="{{ path('job.create') }}" class="btn btn-default navbar-btn">Post a Job</a>
                     </div>
                 </li>
+
+                {% if app.user %}
+                    <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
