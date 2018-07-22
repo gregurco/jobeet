@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block body %}
+    {% include 'job/_job_history.html.twig' with {'historyJobs': historyJobs} only %}
+
     <h4>{{ category.name }}</h4>
 
     {% include 'job/table.html.twig' with {'jobs': activeJobs} only %}
