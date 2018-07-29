@@ -30,4 +30,4 @@ framework:
         #app: cache.adapter.apcu
 
     templating:
-        engines: ['twig', 'php']
+        engines: 'twig'
