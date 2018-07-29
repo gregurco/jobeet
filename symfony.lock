@@ -381,7 +381,7 @@
         }
     },
     "symfony/templating": {
-        "version": "v4.1.1"
+        "version": "v4.1.2"
     },
     "symfony/test-pack": {
         "version": "v1.0.2"
