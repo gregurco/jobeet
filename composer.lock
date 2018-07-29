@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82d31402b6c09d09a23b3a80f774e32a",
+    "content-hash": "0e5e6db5ccbecfcac373238548b42fb8",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -4521,7 +4521,7 @@
         },
         {
             "name": "symfony/templating",
-            "version": "v4.1.1",
+            "version": "v4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/templating.git",
