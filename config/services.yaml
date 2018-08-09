@@ -44,3 +44,7 @@ services:
     App\EventListener\JobTokenListener:
         tags:
             - { name: doctrine.event_listener, event: prePersist }
+
+    App\EventListener\AffiliateTokenListener:
+        tags:
+        - { name: doctrine.event_listener, event: prePersist }
