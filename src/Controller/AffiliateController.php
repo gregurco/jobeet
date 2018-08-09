@@ -34,10 +34,24 @@ class AffiliateController extends AbstractController
 
             $em->persist($affiliate);
             $em->flush();
+
+            return $this->redirectToRoute('affiliate.wait');
         }
 
         return $this->render('affiliate/create.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * Shows the wait affiliate message.
+     *
+     * @Route("/affiliate/wait", name="affiliate.wait",  methods={"GET"})
+     *
+     * @return Response
+     */
+    public function waitAction()
+    {
+        return $this->render('affiliate/wait.html.twig');
     }
 }
