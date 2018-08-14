@@ -21,17 +21,15 @@ class AffiliateFixtures extends Fixture implements OrderedFixtureInterface
         $affiliateSensioLabs->setEmail('contact@sensiolabs.com');
         $affiliateSensioLabs->setActive(true);
         $affiliateSensioLabs->setToken('sensio_labs');
-        $affiliateSensioLabs->setCategories([$manager->merge($this->getReference('category-programming'))]);
+        $affiliateSensioLabs->addCategory($manager->merge($this->getReference('category-programming')));
 
         $affiliateKNPLabs = new Affiliate();
         $affiliateKNPLabs->setUrl('http://www.knplabs.com/');
         $affiliateKNPLabs->setEmail('hello@knplabs.com');
         $affiliateKNPLabs->setActive(true);
         $affiliateKNPLabs->setToken('knp_labs');
-        $affiliateKNPLabs->setCategories([
-            $manager->merge($this->getReference('category-programming')),
-            $manager->merge($this->getReference('category-design')),
-        ]);
+        $affiliateKNPLabs->addCategory($manager->merge($this->getReference('category-programming')));
+        $affiliateKNPLabs->addCategory($manager->merge($this->getReference('category-design')));
 
         $manager->persist($affiliateSensioLabs);
         $manager->persist($affiliateKNPLabs);
