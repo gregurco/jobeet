@@ -125,9 +125,6 @@ class Job
      * @var bool
      *
      * @ORM\Column(type="boolean")
-     *
-     * @JMS\Expose()
-     * @JMS\Type("boolean")
      */
     private $public;
 
@@ -135,9 +132,6 @@ class Job
      * @var bool
      *
      * @ORM\Column(type="boolean")
-     *
-     * @JMS\Expose()
-     * @JMS\Type("boolean")
      */
     private $activated;
 
@@ -145,9 +139,6 @@ class Job
      * @var string
      *
      * @ORM\Column(type="string", length=255)
-     *
-     * @JMS\Expose()
-     * @JMS\Type("string")
      */
     private $email;
 
@@ -165,9 +156,6 @@ class Job
      * @var \DateTime
      *
      * @ORM\Column(type="datetime")
-     *
-     * @JMS\Expose()
-     * @JMS\Type("DateTime")
      */
     private $createdAt;
 
@@ -175,9 +163,6 @@ class Job
      * @var \DateTime
      *
      * @ORM\Column(type="datetime")
-     *
-     * @JMS\Expose()
-     * @JMS\Type("DateTime")
      */
     private $updatedAt;
 
@@ -265,7 +250,7 @@ class Job
      */
     public function getLogoPath()
     {
-        return $this->getLogo() ? 'uploads/jobs/' . $this->getLogo() : null;
+        return $this->getLogo() ? 'uploads/jobs/' . $this->getLogo()->getFilename() : null;
     }
 
     /**
