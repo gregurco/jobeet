@@ -50,7 +50,7 @@ class AffiliateController extends AbstractController
      *
      * @return Response
      */
-    public function waitAction()
+    public function wait()
     {
         return $this->render('affiliate/wait.html.twig');
     }
