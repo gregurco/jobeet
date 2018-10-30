@@ -1,0 +1,45 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+        <tr class="active">
+            <th>Email</th>
+            <th>URL</th>
+            <th>Active</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for affiliate in affiliates %}
+            <tr>
+                <td>{{ affiliate.email }}</td>
+                <td>{{ affiliate.url }}</td>
+                <td>
+                    {% if affiliate.active %}
+                        <span class="label label-success">Yes</span>
+                    {% else %}
+                        <span class="label label-danger">No</span>
+                    {% endif %}
+                </td>
+                <td class="text-nowrap">
+                    <ul class="list-inline">
+                        <li>
+                            {% if affiliate.active %}
+                                <a href="{{ path('admin.affiliate.deactivate', {id: affiliate.id}) }}" class="btn btn-default">Deactivate</a>
+                            {% else %}
+                                <a href="{{ path('admin.affiliate.activate', {id: affiliate.id}) }}" class="btn btn-default">Activate</a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="navigation text-center">
+        {{ knp_pagination_render(affiliates) }}
+    </div>
+{% endblock %}
