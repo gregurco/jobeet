@@ -4,10 +4,9 @@ namespace App\DataFixtures;
 
 use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class CategoryFixtures extends Fixture implements OrderedFixtureInterface
+class CategoryFixtures extends Fixture
 {
     /**
      * @param ObjectManager $manager
@@ -39,13 +38,5 @@ class CategoryFixtures extends Fixture implements OrderedFixtureInterface
         $this->addReference('category-programming', $programmingCategory);
         $this->addReference('category-manager', $managerCategory);
         $this->addReference('category-administrator', $administratorCategory);
-    }
-
-    /**
-     * @return int
-     */
-    public function getOrder() : int
-    {
-        return 1;
     }
 }
