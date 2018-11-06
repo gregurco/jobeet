@@ -4,10 +4,10 @@ namespace App\DataFixtures;
 
 use App\Entity\Affiliate;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class AffiliateFixtures extends Fixture implements OrderedFixtureInterface
+class AffiliateFixtures extends Fixture implements DependentFixtureInterface
 {
     /**
      * @param ObjectManager $manager
@@ -38,10 +38,12 @@ class AffiliateFixtures extends Fixture implements OrderedFixtureInterface
     }
 
     /**
-     * @return int
+     * @return array
      */
-    public function getOrder() : int
+    public function getDependencies(): array
     {
-        return 3;
+        return [
+            CategoryFixtures::class,
+        ];
     }
 }
