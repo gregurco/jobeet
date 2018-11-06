@@ -54,22 +54,6 @@ class JobUploadListener
     }
 
     /**
-     * @param LifecycleEventArgs $args
-     */
-    public function postLoad(LifecycleEventArgs $args)
-    {
-        $entity = $args->getEntity();
-
-        if (!$entity instanceof Job) {
-            return;
-        }
-
-        if ($fileName = $entity->getLogo()) {
-            $entity->setLogo(new File($this->uploader->getTargetDirectory() . '/' . $fileName));
-        }
-    }
-
-    /**
      * @param $entity
      */
     private function uploadFile($entity)
