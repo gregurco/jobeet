@@ -1,7 +1,7 @@
 {% if historyJobs %}
     <div class="panel panel-default">
         <div class="panel-body">
-            Recent viewed jobs:
+            {{ 'job.history.recent_viewed'|trans }}
             {% for historyJob in historyJobs %}
                 <a href="{{ path('job.show', {id: historyJob.id}) }}">{{ historyJob.position ~ ' - ' ~ historyJob.company}}</a>{{ loop.last ? '' : ', ' }}
             {% endfor %}
