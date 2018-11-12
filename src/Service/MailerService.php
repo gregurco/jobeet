@@ -4,18 +4,24 @@ namespace App\Service;
 
 use App\Entity\Affiliate;
 use Swift_Mailer;
+use Symfony\Component\Templating\EngineInterface;
 
 class MailerService
 {
     /** @var Swift_Mailer */
     private $mailer;
 
+    /** @var EngineInterface */
+    private $templateEngine;
+
     /**
      * @param Swift_Mailer $mailer
+     * @param EngineInterface $templateEngine
      */
-    public function __construct(Swift_Mailer $mailer)
+    public function __construct(Swift_Mailer $mailer, EngineInterface $templateEngine)
     {
         $this->mailer = $mailer;
+        $this->templateEngine = $templateEngine;
     }
 
     /**
@@ -26,7 +32,15 @@ class MailerService
         $message = (new \Swift_Message())
             ->setSubject('Account activation')
             ->setTo($affiliate->getEmail())
-            ->setBody('Your account has been activated successfully! Your token is: ' . $affiliate->getToken());
+            ->setBody(
+                $this->templateEngine->render(
+                    'emails/affiliate_activation.html.twig',
+                    [
+                        'token' => $affiliate->getToken(),
+                    ]
+                ),
+                'text/html'
+            );
 
         $this->mailer->send($message);
     }
