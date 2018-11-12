@@ -5,89 +5,233 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <trans-unit id="AITuZlO" resname="category.title">
-        <source>Jobs in the %category% category</source>
-        <target>Jobs in the %category% category</target>
+      <trans-unit id="SPM6JVE" resname="job.base.title">
+        <source>job.base.title</source>
+        <target>Jobeet - Your best job board</target>
       </trans-unit>
       <trans-unit id="YM.OFL6" resname="job.base.list">
-        <source>Jobeet</source>
+        <source>job.base.list</source>
         <target>Jobeet</target>
       </trans-unit>
       <trans-unit id="Fipexar" resname="job.base.create">
-        <source>Post a Job</source>
+        <source>job.base.create</source>
         <target>Post a Job</target>
       </trans-unit>
-      <trans-unit id="SPM6JVE" resname="job.base.title">
-        <source>Jobeet - Your best job board</source>
-        <target>Jobeet - Your best job board</target>
-      </trans-unit>
-      <trans-unit id="T_BRshW" resname="job.create.title">
-        <source>Job creation</source>
-        <target>Job creation</target>
-      </trans-unit>
-      <trans-unit id="A.V.QZk" resname="job.create.submit_button">
-        <source>Create</source>
-        <target>Create</target>
-      </trans-unit>
-      <trans-unit id="zBxeZSL" resname="job.edit.title">
-        <source>Job edit</source>
-        <target>Job edit</target>
-      </trans-unit>
-      <trans-unit id="giWp7cd" resname="job.table.city">
-        <source>City</source>
-        <target>City</target>
-      </trans-unit>
-      <trans-unit id="OsNRU2h" resname="job.table.position">
-        <source>Position</source>
-        <target>Position</target>
-      </trans-unit>
-      <trans-unit id="ncCvLwc" resname="job.table.company">
-        <source>Company</source>
-        <target>Company</target>
-      </trans-unit>
       <trans-unit id="OmrSa09" resname="job.control_panel.title">
-        <source>Control Panel:</source>
+        <source>job.control_panel.title</source>
         <target>Control Panel:</target>
       </trans-unit>
       <trans-unit id="B05GDP6" resname="job.control_panel.delete_button">
-        <source>Delete</source>
+        <source>job.control_panel.delete_button</source>
         <target>Delete</target>
       </trans-unit>
       <trans-unit id="NKZ7g84" resname="job.control_panel.expired">
-        <source>Expired</source>
+        <source>job.control_panel.expired</source>
         <target>Expired</target>
       </trans-unit>
       <trans-unit id="HgCurKr" resname="job.control_panel.expires_in">
-        <source>Expires in %days% days</source>
+        <source>job.control_panel.expires_in</source>
         <target>Expires in %days% days</target>
       </trans-unit>
       <trans-unit id="uEbwuIX" resname="job.control_panel.extend">
-        <source>Extend (for another 30 days)</source>
+        <source>job.control_panel.extend</source>
         <target>Extend (for another 30 days)</target>
       </trans-unit>
       <trans-unit id="kgOFzxw" resname="job.control_panel.edit_button">
-        <source>Edit</source>
+        <source>job.control_panel.edit_button</source>
         <target>Edit</target>
       </trans-unit>
       <trans-unit id="tcwmYe_" resname="job.control_panel.publish_button">
-        <source>Publish</source>
+        <source>job.control_panel.publish_button</source>
         <target>Publish</target>
       </trans-unit>
       <trans-unit id="CRo0sXR" resname="job.control_panel.url">
-        <source>[Bookmark this %link_start%URL%link_end% to manage this job in the future]</source>
+        <source>job.control_panel.url</source>
         <target>[Bookmark this %link_start%URL%link_end% to manage this job in the future]</target>
       </trans-unit>
+      <trans-unit id="T_BRshW" resname="job.create.title">
+        <source>job.create.title</source>
+        <target>Job creation</target>
+      </trans-unit>
+      <trans-unit id="A.V.QZk" resname="job.create.submit_button">
+        <source>job.create.submit_button</source>
+        <target>Create</target>
+      </trans-unit>
+      <trans-unit id="zBxeZSL" resname="job.edit.title">
+        <source>job.edit.title</source>
+        <target>Job edit</target>
+      </trans-unit>
+      <trans-unit id="NCP0uCd" resname="job.edit.submit_button">
+        <source>job.edit.submit_button</source>
+        <target>Edit</target>
+      </trans-unit>
       <trans-unit id="zKWnmf6" resname="job.show.posted_on">
-        <source>posted on %date%</source>
+        <source>job.show.posted_on</source>
         <target>posted on %date%</target>
       </trans-unit>
       <trans-unit id="dfk7Ast" resname="job.show.how_to_apply">
-        <source>How to apply?</source>
+        <source>job.show.how_to_apply</source>
         <target>How to apply?</target>
       </trans-unit>
       <trans-unit id="ON_r74W" resname="job.show.back_to_list">
-        <source>Back to list</source>
+        <source>job.show.back_to_list</source>
         <target>Back to list</target>
+      </trans-unit>
+      <trans-unit id="giWp7cd" resname="job.table.city">
+        <source>job.table.city</source>
+        <target>City</target>
+      </trans-unit>
+      <trans-unit id="OsNRU2h" resname="job.table.position">
+        <source>job.table.position</source>
+        <target>Position</target>
+      </trans-unit>
+      <trans-unit id="ncCvLwc" resname="job.table.company">
+        <source>job.table.company</source>
+        <target>Company</target>
+      </trans-unit>
+      <trans-unit id="AITuZlO" resname="category.title">
+        <source>category.title</source>
+        <target>Jobs in the %category% category</target>
+      </trans-unit>
+      <trans-unit id="4iIkq4Y" resname="admin_panel">
+        <source>admin_panel</source>
+        <target>Admin panel</target>
+      </trans-unit>
+      <trans-unit id="Frdv8uy" resname="affiliates">
+        <source>affiliates</source>
+        <target>Affiliates</target>
+      </trans-unit>
+      <trans-unit id="ACcM9j_" resname="logout">
+        <source>logout</source>
+        <target>Logout</target>
+      </trans-unit>
+      <trans-unit id="hkuLNtk" resname="admin.category.list.table.name">
+        <source>admin.category.list.table.name</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="dO8FdTM" resname="admin.category.list.table.position">
+        <source>admin.category.list.table.position</source>
+        <target>Position</target>
+      </trans-unit>
+      <trans-unit id="GrpuW7e" resname="admin.category.list.table.jobs">
+        <source>admin.category.list.table.jobs</source>
+        <target>Jobs</target>
+      </trans-unit>
+      <trans-unit id="NcFjEyX" resname="admin.category.list.table.affiliates">
+        <source>admin.category.list.table.affiliates</source>
+        <target>Affiliates</target>
+      </trans-unit>
+      <trans-unit id="IgLkwxL" resname="admin.category.list.table.actions">
+        <source>admin.category.list.table.actions</source>
+        <target>Actions</target>
+      </trans-unit>
+      <trans-unit id="hYOtZd4" resname="admin.category.list.edit_button">
+        <source>admin.category.list.edit_button</source>
+        <target>Edit</target>
+      </trans-unit>
+      <trans-unit id="d1Cf5Mh" resname="admin.category.list.delete_button">
+        <source>admin.category.list.delete_button</source>
+        <target>Delete</target>
+      </trans-unit>
+      <trans-unit id="TXdN5lN" resname="admin.category.list.create_button">
+        <source>admin.category.list.create_button</source>
+        <target>Create new</target>
+      </trans-unit>
+      <trans-unit id="VQ.GmNx" resname="admin.category.create.title">
+        <source>admin.category.create.title</source>
+        <target>Create new category</target>
+      </trans-unit>
+      <trans-unit id="xgWfv0a" resname="admin.category.create.back_to_list">
+        <source>admin.category.create.back_to_list</source>
+        <target>back to list</target>
+      </trans-unit>
+      <trans-unit id="jpdUqvO" resname="admin.category.edit.title">
+        <source>admin.category.edit.title</source>
+        <target>Edit category "%category%"</target>
+      </trans-unit>
+      <trans-unit id="cH4eQvt" resname="admin.category.edit.back_to_list">
+        <source>admin.category.edit.back_to_list</source>
+        <target>back to list</target>
+      </trans-unit>
+      <trans-unit id="ITi.WU7" resname="admin.category.form.submit_button">
+        <source>admin.category.form.submit_button</source>
+        <target>Save</target>
+      </trans-unit>
+      <trans-unit id="HDFLm7y" resname="admin.admin_panel">
+        <source>admin.admin_panel</source>
+        <target>Jobeet Admin</target>
+      </trans-unit>
+      <trans-unit id="Ke7whTj" resname="admin.categories">
+        <source>admin.categories</source>
+        <target>Categories</target>
+      </trans-unit>
+      <trans-unit id="NvDHJ6J" resname="admin.jobs">
+        <source>admin.jobs</source>
+        <target>Jobs</target>
+      </trans-unit>
+      <trans-unit id="zgzNMGH" resname="admin.affiliates">
+        <source>admin.affiliates</source>
+        <target>Affiliates</target>
+      </trans-unit>
+      <trans-unit id="XneOvFD" resname="admin.title">
+        <source>admin.title</source>
+        <target>Jobeet - Admin</target>
+      </trans-unit>
+      <trans-unit id="kiCnrBG" resname="admin.affiliate.table.email">
+        <source>admin.affiliate.table.email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="P7BVneT" resname="admin.affiliate.table.url">
+        <source>admin.affiliate.table.url</source>
+        <target>URL</target>
+      </trans-unit>
+      <trans-unit id="zH2163X" resname="admin.affiliate.table.active">
+        <source>admin.affiliate.table.active</source>
+        <target>Active</target>
+      </trans-unit>
+      <trans-unit id="PciPnfU" resname="admin.affiliate.table.actions">
+        <source>admin.affiliate.table.actions</source>
+        <target>Actions</target>
+      </trans-unit>
+      <trans-unit id=".8V.825" resname="admin.affiliate.active">
+        <source>admin.affiliate.active</source>
+        <target>Yes</target>
+      </trans-unit>
+      <trans-unit id="IlDY24h" resname="admin.affiliate.inactive">
+        <source>admin.affiliate.inactive</source>
+        <target>No</target>
+      </trans-unit>
+      <trans-unit id="Yo2LrlH" resname="admin.affiliate.deactivate_button">
+        <source>admin.affiliate.deactivate_button</source>
+        <target>Deactivate</target>
+      </trans-unit>
+      <trans-unit id="gkRVhmx" resname="admin.affiliate.activate_button">
+        <source>admin.affiliate.activate_button</source>
+        <target>Activate</target>
+      </trans-unit>
+      <trans-unit id="_YWbwXo" resname="job.history.recent_viewed">
+        <source>job.history.recent_viewed</source>
+        <target>Recent viewed jobs:</target>
+      </trans-unit>
+      <trans-unit id="s9PzBy2" resname="job.show.title">
+        <source>job.show.title</source>
+        <target>Job</target>
+      </trans-unit>
+      <trans-unit id="yP2kWCW" resname="affiliate.create.title">
+        <source>affiliate.create.title</source>
+        <target>Become an Affiliate</target>
+      </trans-unit>
+      <trans-unit id="_z3BYpR" resname="affiliate.create.submit_button">
+        <source>affiliate.create.submit_button</source>
+        <target>Create</target>
+      </trans-unit>
+      <trans-unit id="ugslCJu" resname="affiliate.wait.title">
+        <source>affiliate.wait.title</source>
+        <target>Your affiliate account has been created</target>
+      </trans-unit>
+      <trans-unit id="GC8zMAu" resname="affiliate.wait.content">
+        <source>affiliate.wait.content</source>
+        <target>Thank you! You will receive an email with your affiliate token as soon as your account will be activated.</target>
       </trans-unit>
     </body>
   </file>

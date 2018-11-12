@@ -1,12 +1,12 @@
 {% extends 'admin/base.html.twig' %}
 
 {% block body %}
-    <h1>Create new category</h1>
+    <h1>{{ 'admin.category.create.title'|trans }}</h1>
 
     {% include 'admin/category/_form.html.twig' with {'form': form} only %}
 
     <a href="{{ path('admin.category.list') }}" class="btn btn-default">
         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-        back to list
+        {{ 'admin.category.create.back_to_list'|trans }}
     </a>
 {% endblock %}

@@ -23,14 +23,14 @@
                 {% if is_granted('ROLE_ADMIN') %}
                     <li>
                         <div>
-                            <a href="{{ path('admin.category.list') }}" class="btn btn-default navbar-btn">Admin Panel</a>
+                            <a href="{{ path('admin.category.list') }}" class="btn btn-default navbar-btn">{{ 'admin_panel'|trans }}</a>
                         </div>
                     </li>
                 {% endif %}
 
                 <li style="margin-right: 10px">
                     <div>
-                        <a href="{{ path('affiliate.create') }}" class="btn btn-default navbar-btn">Affiliates</a>
+                        <a href="{{ path('affiliate.create') }}" class="btn btn-default navbar-btn">{{ 'affiliates'|trans }}</a>
                     </div>
                 </li>
 
@@ -41,7 +41,7 @@
                 </li>
 
                 {% if app.user %}
-                    <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}">{{ 'logout'|trans }}</a></li>
                 {% endif %}
             </ul>
         </div>
