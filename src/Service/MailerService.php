@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\Affiliate;
 use Swift_Mailer;
+use Swift_Message;
 use Symfony\Component\Templating\EngineInterface;
 
 class MailerService
@@ -29,9 +30,10 @@ class MailerService
      */
     public function sendActivationEmail(Affiliate $affiliate): void
     {
-        $message = (new \Swift_Message())
+        $message = (new Swift_Message())
             ->setSubject('Account activation')
             ->setTo($affiliate->getEmail())
+            ->setFrom('jobeet@example.com')
             ->setBody(
                 $this->templateEngine->render(
                     'emails/affiliate_activation.html.twig',
