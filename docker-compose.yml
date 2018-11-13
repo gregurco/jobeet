@@ -31,3 +31,10 @@ services:
         volumes:
             - .:/application
             - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
+
+    mailhog:
+        image: mailhog/mailhog:v1.0.0
+        container_name: jobeet-mailhog
+        ports:
+            - 1025:1025
+            - 8025:8025
