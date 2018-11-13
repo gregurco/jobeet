@@ -2,6 +2,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    locales: ['en', 'ru']
     max_jobs_on_homepage: 10
     max_jobs_on_category: 20
     max_per_page: 10
