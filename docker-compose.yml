@@ -32,6 +32,13 @@ services:
             - .:/application
             - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
 
+    node:
+        image: node:9.11.1
+        container_name: jobeet-node
+        working_dir: /application
+        volumes:
+        - .:/application
+
     mailhog:
         image: mailhog/mailhog:v1.0.0
         container_name: jobeet-mailhog
