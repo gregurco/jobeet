@@ -1,6 +1,8 @@
 {
     "devDependencies": {
-        "@symfony/webpack-encore": "^0.17.0"
+        "@symfony/webpack-encore": "^0.17.0",
+        "bootstrap": "^3.3.7",
+        "jquery": "^3.3.1"
     },
     "license": "UNLICENSED",
     "private": true,

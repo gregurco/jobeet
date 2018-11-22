@@ -7,7 +7,9 @@
 
     {% block stylesheets %}{% endblock %}
 
-    {% block javascripts %}{% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('build/app.js') }}"></script>
+    {% endblock %}
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
@@ -28,7 +30,7 @@
                     </li>
                 {% endif %}
 
-                <li style="margin-right: 10px">
+                <li>
                     <div>
                         <a href="{{ path('affiliate.create') }}" class="btn btn-default navbar-btn">{{ 'affiliates'|trans }}</a>
                     </div>
