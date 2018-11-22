@@ -42,6 +42,17 @@
                     </div>
                 </li>
 
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ app.request.locale|upper }}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        {% for locale in locales %}
+                            <li>
+                                <a href="{{ path(app.request.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': locale})) }}">{{ locale|upper }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+
                 {% if app.user %}
                     <li><a href="{{ path('fos_user_security_logout') }}">{{ 'logout'|trans }}</a></li>
                 {% endif %}
