@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e565b409863b4e424406ba285dc96b00",
+    "content-hash": "d9a8df2dce7d1504d58ab09163a61234",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1393,6 +1393,57 @@
             "time": "2014-01-12T16:20:24+00:00"
         },
         {
+            "name": "jean85/pretty-package-versions",
+            "version": "1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jean85/pretty-package-versions.git",
+                "reference": "75c7effcf3f77501d0e0caa75111aff4daa0dd48"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/75c7effcf3f77501d0e0caa75111aff4daa0dd48",
+                "reference": "75c7effcf3f77501d0e0caa75111aff4daa0dd48",
+                "shasum": ""
+            },
+            "require": {
+                "ocramius/package-versions": "^1.2.0",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jean85\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alessandro Lai",
+                    "email": "alessandro.lai85@gmail.com"
+                }
+            ],
+            "description": "A wrapper for ocramius/package-versions to get pretty versions strings",
+            "keywords": [
+                "composer",
+                "package",
+                "release",
+                "versions"
+            ],
+            "time": "2018-06-13T13:22:40+00:00"
+        },
+        {
             "name": "jms/metadata",
             "version": "1.6.0",
             "source": {
@@ -2576,6 +2627,139 @@
                 "controllers"
             ],
             "time": "2018-05-12T09:37:42+00:00"
+        },
+        {
+            "name": "sentry/sentry",
+            "version": "1.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/getsentry/sentry-php.git",
+                "reference": "b2b8ffe1560b9fb0110b02993594a4b04a511959"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/b2b8ffe1560b9fb0110b02993594a4b04a511959",
+                "reference": "b2b8ffe1560b9fb0110b02993594a4b04a511959",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": "^5.3|^7.0"
+            },
+            "conflict": {
+                "raven/raven": "*"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.8.0",
+                "monolog/monolog": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7"
+            },
+            "suggest": {
+                "ext-hash": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "monolog/monolog": "Automatically capture Monolog events as breadcrumbs"
+            },
+            "bin": [
+                "bin/sentry"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.10.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Raven_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "David Cramer",
+                    "email": "dcramer@gmail.com"
+                }
+            ],
+            "description": "A PHP client for Sentry (http://getsentry.com)",
+            "homepage": "http://getsentry.com",
+            "keywords": [
+                "log",
+                "logging"
+            ],
+            "time": "2018-11-09T12:27:19+00:00"
+        },
+        {
+            "name": "sentry/sentry-symfony",
+            "version": "2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/getsentry/sentry-symfony.git",
+                "reference": "c0154ea26d95c9715899a863a47643a5c2d84f3e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/getsentry/sentry-symfony/zipball/c0154ea26d95c9715899a863a47643a5c2d84f3e",
+                "reference": "c0154ea26d95c9715899a863a47643a5c2d84f3e",
+                "shasum": ""
+            },
+            "require": {
+                "jean85/pretty-package-versions": "^1.0",
+                "php": "^7.1",
+                "sentry/sentry": "^1.9",
+                "symfony/config": "^3.0||^4.0",
+                "symfony/console": "^3.3||^4.0",
+                "symfony/dependency-injection": "^3.0||^4.0",
+                "symfony/event-dispatcher": "^3.0||^4.0",
+                "symfony/http-kernel": "^3.0||^4.0",
+                "symfony/security-core": "^3.0||^4.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.8",
+                "phpstan/phpstan": "^0.10",
+                "phpstan/phpstan-phpunit": "^0.10",
+                "phpunit/phpunit": "^7",
+                "scrutinizer/ocular": "^1.4",
+                "symfony/expression-language": "^3.0||^4.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "master": "2.1.x-dev",
+                    "releases/1.x": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sentry\\SentryBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Cramer",
+                    "email": "dcramer@gmail.com"
+                },
+                {
+                    "name": "Alessandro Lai",
+                    "email": "alessandro.lai85@gmail.com"
+                }
+            ],
+            "description": "Symfony integration for Sentry (http://getsentry.com)",
+            "homepage": "http://getsentry.com",
+            "keywords": [
+                "errors",
+                "logging",
+                "sentry",
+                "symfony"
+            ],
+            "time": "2018-11-05T14:29:39+00:00"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
@@ -3979,6 +4163,7 @@
             ],
             "description": "Enforces Long Term Supported versions of Symfony components",
             "homepage": "https://symfony.com",
+            "abandoned": "symfony/flex",
             "time": "2018-04-03T05:04:16+00:00"
         },
         {

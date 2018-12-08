@@ -20,4 +20,5 @@ return [
     FOS\UserBundle\FOSUserBundle::class => ['all' => true],
     FOS\RestBundle\FOSRestBundle::class => ['all' => true],
     JMS\SerializerBundle\JMSSerializerBundle::class => ['all' => true],
+    Sentry\SentryBundle\SentryBundle::class => ['all' => true],
 ];
