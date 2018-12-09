@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}{{ 'admin.title'|trans }}{% endblock %}</title>
+    <title>{% block title %}{{ 'Jobeet - Admin'|trans }}{% endblock %}</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
@@ -15,7 +15,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{ path('admin.category.list') }}">{{ 'admin.admin_panel'|trans }}</a>
+            <a class="navbar-brand" href="{{ path('admin.category.list') }}">{{ 'Jobeet Admin'|trans }}</a>
         </div>
     </div>
 </nav>
@@ -27,15 +27,15 @@
 
             <ul class="nav nav-pills nav-stacked nav-pills-stacked-example">
                 <li role="presentation" {% if currentRouteName starts with 'admin.category.' %}class="active"{% endif %}>
-                    <a href="{{ path('admin.category.list') }}">{{ 'admin.categories'|trans }}</a>
+                    <a href="{{ path('admin.category.list') }}">{{ 'Categories'|trans }}</a>
                 </li>
 
                 <li role="presentation" {% if currentRouteName starts with 'admin.job.' %}class="active"{% endif %}>
-                    <a href="{{ path('admin.job.list') }}">{{ 'admin.jobs'|trans }}</a>
+                    <a href="{{ path('admin.job.list') }}">{{ 'Jobs'|trans }}</a>
                 </li>
 
                 <li role="presentation" {% if currentRouteName starts with 'admin.affiliate.' %}class="active"{% endif %}>
-                    <a href="{{ path('admin.affiliate.list') }}">{{ 'admin.affiliates'|trans }}</a>
+                    <a href="{{ path('admin.affiliate.list') }}">{{ 'Affiliates'|trans }}</a>
                 </li>
             </ul>
         </div>

@@ -4,13 +4,13 @@
     <table class="table">
         <thead>
         <tr class="active">
-            <th>Company</th>
-            <th>Position</th>
-            <th>Location</th>
-            <th>Email</th>
-            <th>URL</th>
-            <th>Activated</th>
-            <th>Actions</th>
+            <th>{{ 'Company'|trans }}</th>
+            <th>{{ 'Position'|trans }}</th>
+            <th>{{ 'Location'|trans }}</th>
+            <th>{{ 'Email'|trans }}</th>
+            <th>{{ 'URL'|trans }}</th>
+            <th>{{ 'Activated'|trans }}</th>
+            <th>{{ 'Actions'|trans }}</th>
         </tr>
         </thead>
 
@@ -32,14 +32,14 @@
                 <td class="text-nowrap">
                     <ul class="list-inline">
                         <li>
-                            <a href="{{ path('admin.job.edit', {id: job.id}) }}" class="btn btn-default">Edit</a>
+                            <a href="{{ path('admin.job.edit', {id: job.id}) }}" class="btn btn-default">{{ 'Edit'|trans }}</a>
                         </li>
 
                         <li>
-                            <form method="post" action="{{ path('admin.job.delete', {id: job.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                            <form method="post" action="{{ path('admin.job.delete', {id: job.id}) }}" onsubmit="return confirm('{{ 'Are you sure you want to delete this item?'|trans }}');">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ job.id) }}">
-                                <button class="btn btn-danger">Delete</button>
+                                <button class="btn btn-danger">{{ 'Delete'|trans }}</button>
                             </form>
                         </li>
                     </ul>
@@ -53,5 +53,5 @@
         {{ knp_pagination_render(jobs) }}
     </div>
 
-    <a href="{{ path('admin.job.create') }}" class="btn btn-success">Create new</a>
+    <a href="{{ path('admin.job.create') }}" class="btn btn-success">{{ 'Create new'|trans }}</a>
 {% endblock %}
