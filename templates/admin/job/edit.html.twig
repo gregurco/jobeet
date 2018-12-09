@@ -11,12 +11,12 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Edit job</h1>
+    <h1>{{ 'Edit job'|trans }}</h1>
 
     {% include 'admin/job/_form.html.twig' %}
 
     <a href="{{ path('admin.job.list') }}" class="btn btn-default">
         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-        back to list
+        {{ 'back to list'|trans }}
     </a>
 {% endblock %}
