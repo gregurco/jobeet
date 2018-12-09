@@ -4,10 +4,10 @@
     <table class="table">
         <thead>
         <tr class="active">
-            <th>{{ 'admin.affiliate.table.email'|trans }}</th>
-            <th>{{ 'admin.affiliate.table.url'|trans }}</th>
-            <th>{{ 'admin.affiliate.table.active'|trans }}</th>
-            <th>{{ 'admin.affiliate.table.actions'|trans }}</th>
+            <th>{{ 'Email'|trans }}</th>
+            <th>{{ 'URL'|trans }}</th>
+            <th>{{ 'Active'|trans }}</th>
+            <th>{{ 'Actions'|trans }}</th>
         </tr>
         </thead>
 
@@ -18,18 +18,18 @@
                 <td>{{ affiliate.url }}</td>
                 <td>
                     {% if affiliate.active %}
-                        <span class="label label-success">{{ 'admin.affiliate.active'|trans }}</span>
+                        <span class="label label-success">{{ 'Yes'|trans }}</span>
                     {% else %}
-                        <span class="label label-danger">{{ 'admin.affiliate.inactive'|trans }}</span>
+                        <span class="label label-danger">{{ 'No'|trans }}</span>
                     {% endif %}
                 </td>
                 <td class="text-nowrap">
                     <ul class="list-inline">
                         <li>
                             {% if affiliate.active %}
-                                <a href="{{ path('admin.affiliate.deactivate', {id: affiliate.id}) }}" class="btn btn-default">{{ 'admin.affiliate.deactivate_button'|trans }}</a>
+                                <a href="{{ path('admin.affiliate.deactivate', {id: affiliate.id}) }}" class="btn btn-default">{{ 'Deactivate'|trans }}</a>
                             {% else %}
-                                <a href="{{ path('admin.affiliate.activate', {id: affiliate.id}) }}" class="btn btn-default">{{ 'admin.affiliate.activate_button'|trans }}</a>
+                                <a href="{{ path('admin.affiliate.activate', {id: affiliate.id}) }}" class="btn btn-default">{{ 'Activate'|trans }}</a>
                             {% endif %}
                         </li>
                     </ul>
