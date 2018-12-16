@@ -20,6 +20,8 @@ class CategoryRepository extends EntityRepository
             ->setParameter('date', new \DateTime())
             ->setParameter('activated', true)
             ->getQuery()
+            ->setCacheable(true)
+            ->setCacheRegion('jobeet_region')
             ->getResult();
     }
 }

@@ -21,3 +21,4 @@
 ###< symfony/web-server-bundle ###
 
 .idea
+/volumes/redis/

@@ -10,6 +10,7 @@ use JMS\Serializer\Annotation as JMS;
  * @ORM\Entity(repositoryClass="App\Repository\JobRepository")
  * @ORM\Table(name="jobs")
  * @ORM\HasLifecycleCallbacks()
+ * @ORM\Cache(usage="NONSTRICT_READ_WRITE", region="jobeet_region")
  *
  * @JMS\ExclusionPolicy("all")
  */

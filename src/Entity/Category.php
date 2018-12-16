@@ -9,6 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  * @ORM\Table(name="categories")
+ * @ORM\Cache(usage="NONSTRICT_READ_WRITE", region="jobeet_region")
  */
 class Category
 {
@@ -41,6 +42,7 @@ class Category
      * @var Job[]|ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="Job", mappedBy="category", cascade={"remove"})
+     * @ORM\Cache(usage="NONSTRICT_READ_WRITE")
      */
     private $jobs;
 
