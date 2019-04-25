@@ -19,7 +19,7 @@ class NonEntity
     /**
      * @return string
      */
-    public function getToken(): string
+    public function getToken(): ?string
     {
         return $this->token;
     }
@@ -39,7 +39,7 @@ class NonEntity
     /**
      * @return string
      */
-    public function getLogo(): string
+    public function getLogo(): ?string
     {
         return $this->logo;
     }
