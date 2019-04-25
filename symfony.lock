@@ -179,6 +179,9 @@
     "knplabs/knp-paginator-bundle": {
         "version": "v2.8.0"
     },
+    "mikey179/vfsstream": {
+        "version": "v1.6.6"
+    },
     "monolog/monolog": {
         "version": "1.23.0"
     },
