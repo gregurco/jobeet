@@ -1,8 +1,9 @@
 <?php
 
-namespace App\EventListener;
+namespace App\Tests\EventListener;
 
 use App\Entity\Job;
+use App\EventListener\JobUploadListener;
 use App\Service\FileUploader;
 use App\Tests\EventListener\Stub\NonEntity;
 use Doctrine\ORM\EntityManagerInterface;

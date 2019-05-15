@@ -22,7 +22,7 @@ services:
             - .:/application
             - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
         ports:
-            - 80:80
+            - 82:80
 
     php-fpm:
         build: docker/php-fpm

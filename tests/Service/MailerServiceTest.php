@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Service;
+namespace App\Tests\Service;
 
 use App\Entity\Affiliate;
+use App\Service\MailerService;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Swift_Mailer;

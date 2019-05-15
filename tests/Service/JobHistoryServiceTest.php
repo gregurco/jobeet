@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Service;
+namespace App\Tests\Service;
 
 use App\Entity\Job;
 use App\Repository\JobRepository;
+use App\Service\JobHistoryService;
 use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
