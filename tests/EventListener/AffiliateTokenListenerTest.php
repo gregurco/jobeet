@@ -1,8 +1,9 @@
 <?php
 
-namespace App\EventListener;
+namespace App\Tests\EventListener;
 
 use App\Entity\Affiliate;
+use App\EventListener\AffiliateTokenListener;
 use App\Tests\EventListener\Stub\NonEntity;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Event\LifecycleEventArgs;

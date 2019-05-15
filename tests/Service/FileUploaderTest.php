@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Service;
+namespace App\Tests\Service;
 
+use App\Service\FileUploader;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\File\UploadedFile;

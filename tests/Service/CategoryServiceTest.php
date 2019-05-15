@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Service;
+namespace App\Tests\Service;
 
 use App\Entity\Category;
+use App\Service\CategoryService;
 use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
