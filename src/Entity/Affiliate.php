@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\DateTimeAwareTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Affiliate
 {
+    use DateTimeAwareTrait;
+
     /**
      * @var int
      *
@@ -201,9 +204,10 @@ class Affiliate
 
     /**
      * @ORM\PrePersist
+     * @throws \Exception
      */
-    public function prePersist()
+    public function prePersist() : void
     {
-        $this->createdAt = new \DateTime();
+        $this->createdAt = $this->getCurrentDateTime();
     }
 }

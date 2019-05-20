@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\DateTimeAwareTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use JMS\Serializer\Annotation as JMS;
@@ -15,6 +16,8 @@ use JMS\Serializer\Annotation as JMS;
  */
 class Job
 {
+    use DateTimeAwareTrait;
+
     public const FULL_TIME_TYPE = 'full-time';
     public const PART_TIME_TYPE = 'part-time';
     public const FREELANCE_TYPE = 'freelance';
@@ -248,7 +251,7 @@ class Job
      *
      * @return string
      */
-    public function getLogoPath()
+    public function getLogoPath(): ?string
     {
         return $this->getLogo() ? 'uploads/jobs/' . $this->getLogo()->getFilename() : null;
     }
@@ -493,20 +496,25 @@ class Job
      * @JMS\VirtualProperty
      * @JMS\SerializedName("category_name")
      *
-     * @return string
+     * @return null|string
      */
-    public function getCategoryName()
+    public function getCategoryName(): ?string
     {
+        if ($this->getCategory() === null) {
+            return null;
+        }
+
         return $this->getCategory()->getName();
     }
 
     /**
      * @ORM\PrePersist()
+     * @throws \Exception
      */
-    public function prePersist()
+    public function prePersist(): void
     {
-        $this->createdAt = new \DateTime();
-        $this->updatedAt = new \DateTime();
+        $this->createdAt = $this->getCurrentDateTime();
+        $this->updatedAt = $this->getCurrentDateTime();
 
         if (!$this->expiresAt) {
             $this->expiresAt = (clone $this->createdAt)->modify('+30 days');
@@ -515,9 +523,10 @@ class Job
 
     /**
      * @ORM\PreUpdate()
+     * @throws \Exception
      */
-    public function preUpdate()
+    public function preUpdate(): void
     {
-        $this->updatedAt = new \DateTime();
+        $this->updatedAt = $this->getCurrentDateTime();
     }
 }

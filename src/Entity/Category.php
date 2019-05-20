@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\DateTimeAwareTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -12,6 +13,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Category
 {
+    use DateTimeAwareTrait;
+
     /**
      * @var int
      *
@@ -95,10 +98,13 @@ class Category
 
     /**
      * @param string $slug
+     * @return self
      */
-    public function setSlug(string $slug): void
+    public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
     }
 
     /**
@@ -115,7 +121,7 @@ class Category
     public function getActiveJobs()
     {
         return $this->jobs->filter(function(Job $job) {
-            return $job->getExpiresAt() > new \DateTime() && $job->isActivated();
+            return $job->getExpiresAt() > $this->getCurrentDateTime() && $job->isActivated();
         });
     }
 
