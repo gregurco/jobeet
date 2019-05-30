@@ -8,6 +8,10 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
+/**
+ * Class JobTest
+ * @group unit
+ */
 class JobTest extends TestCase
 {
     public function testGettersSettersAndDefaultValues(): void

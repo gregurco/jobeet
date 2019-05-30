@@ -6,6 +6,10 @@ use App\Entity\Affiliate;
 use App\Entity\Category;
 use App\Form\AffiliateType;
 
+/**
+ * Class AffiliateTypeTest
+ * @group unit
+ */
 class AffiliateTypeTest extends AbstractTypeTest
 {
     public function testSubmitValidData(): void

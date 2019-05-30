@@ -7,6 +7,10 @@ use App\Entity\Category;
 use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class AffiliateTest
+ * @group unit
+ */
 class AffiliateTest extends TestCase
 {
     public function testGettersSettersAndDefaultValues(): void

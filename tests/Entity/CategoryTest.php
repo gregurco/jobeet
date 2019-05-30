@@ -8,6 +8,10 @@ use App\Entity\Job;
 use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class CategoryTest
+ * @group unit
+ */
 class CategoryTest extends TestCase
 {
     public function testGettersSettersAndDefaultValues(): void

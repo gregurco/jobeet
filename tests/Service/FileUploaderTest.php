@@ -7,6 +7,10 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
+/**
+ * Class FileUploaderTest
+ * @group unit
+ */
 class FileUploaderTest extends TestCase
 {
     public function testCreateCategory(): void

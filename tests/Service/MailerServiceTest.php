@@ -10,6 +10,10 @@ use Swift_Mailer;
 use Swift_Message;
 use Symfony\Component\Templating\EngineInterface;
 
+/**
+ * Class MailerServiceTest
+ * @group unit
+ */
 class MailerServiceTest extends TestCase
 {
     public function testCreateCategory(): void
