@@ -10,6 +10,10 @@ use Doctrine\ORM\Event\LifecycleEventArgs;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class AffiliateTokenListenerTest
+ * @group unit
+ */
 class AffiliateTokenListenerTest extends TestCase
 {
     public function testAffiliateTokenIsSet(): void

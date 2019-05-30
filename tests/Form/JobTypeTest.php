@@ -7,6 +7,10 @@ use App\Entity\Job;
 use App\Form\JobType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
+/**
+ * Class JobTypeTest
+ * @group unit
+ */
 class JobTypeTest extends AbstractTypeTest
 {
     public function testSubmitValidData(): void

@@ -10,6 +10,10 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
+/**
+ * Class JobHistoryServiceTest
+ * @group unit
+ */
 class JobHistoryServiceTest extends TestCase
 {
     public function testAddJob(): void

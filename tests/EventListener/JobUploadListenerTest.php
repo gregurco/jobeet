@@ -15,6 +15,10 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
+/**
+ * Class JobUploadListenerTest
+ * @group unit
+ */
 class JobUploadListenerTest extends TestCase
 {
     public function testPrePersistIgnoresNonJobs(): void

@@ -10,6 +10,10 @@ use Doctrine\ORM\Event\LifecycleEventArgs;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class JobTokenListenerTest
+ * @group unit
+ */
 class JobTokenListenerTest extends TestCase
 {
     public function testJobTokenIsSet(): void

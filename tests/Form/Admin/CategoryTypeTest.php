@@ -6,6 +6,10 @@ use App\Entity\Category;
 use App\Form\Admin\CategoryType;
 use App\Tests\Form\AbstractTypeTest;
 
+/**
+ * Class CategoryTypeTest
+ * @group unit
+ */
 class CategoryTypeTest extends AbstractTypeTest
 {
     public function testSubmitValidData(): void

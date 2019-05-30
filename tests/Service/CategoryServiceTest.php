@@ -8,6 +8,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class CategoryServiceTest
+ * @group unit
+ */
 class CategoryServiceTest extends TestCase
 {
     public function testCreateCategory(): void
