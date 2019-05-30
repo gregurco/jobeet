@@ -31,5 +31,6 @@ class FileUploaderTest extends TestCase
         $fileName = $uploader->upload($file);
 
         $this->assertRegExp('/.+?\._EXT_/', $fileName);
+        $this->assertEquals('_DIR_', $uploader->getTargetDirectory());
     }
 }
