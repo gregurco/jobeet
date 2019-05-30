@@ -253,7 +253,12 @@ class Job
      */
     public function getLogoPath(): ?string
     {
-        return $this->getLogo() ? 'uploads/jobs/' . $this->getLogo()->getFilename() : null;
+        $logo = $this->getLogo();
+        if ($logo instanceof UploadedFile) {
+            return 'uploads/jobs/' . $logo->getFilename();
+        }
+
+        return $logo;
     }
 
     /**

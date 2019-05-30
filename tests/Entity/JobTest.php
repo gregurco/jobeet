@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\Job;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class JobTest extends TestCase
 {
@@ -48,6 +49,26 @@ class JobTest extends TestCase
         $job->setCategory($category);
         $this->assertEquals('_CATEGORY_', $job->getCategoryName());
         $this->assertSame($category, $job->getCategory());
+    }
+
+    public function testLogoPathReturnsPathToFileOrNull(): void
+    {
+        $job = new Job();
+
+        $this->assertNull($job->getLogoPath());
+
+        $file = $this->getMockBuilder(UploadedFile::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $file->expects($this->once())
+            ->method('getFilename')
+            ->willReturn('_FILE_NAME_');
+
+        $job->setLogo($file);
+        $this->assertEquals('uploads/jobs/_FILE_NAME_', $job->getLogoPath());
+
+        $job->setLogo('uploads/jobs/_OTHER_FILE_NAME_');
+        $this->assertEquals('uploads/jobs/_OTHER_FILE_NAME_', $job->getLogoPath());
     }
 
     /**
