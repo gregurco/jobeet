@@ -2,6 +2,7 @@
 
 namespace App\Tests\Controller;
 
+use App\Entity\Category;
 use App\Entity\Job;
 
 /**
@@ -187,14 +188,39 @@ class JobControllerTest extends BaseControllerTest
         $this->assertEquals(1, $count);
     }
 
-    public function testDeleteActionRemovesTheJob(): void
-    {
-
-    }
-
     public function testPublishActionPublishesJob(): void
     {
+        $this->markTestSkipped('It seems publishing is not working properly!');
 
+        $em = $this->getContainer()->get('doctrine.orm.entity_manager');
+
+        $category = (new Category())
+            ->setName('_CATEGORY_NAME_');
+        $em->persist($category);
+        $em->flush();
+
+        $job = (new Job())
+            ->setDescription('_DESCRIPTION_')
+            ->setCompany('_COMPANY_')
+            ->setPosition('_POSITION_')
+            ->setLocation('_LOCATION_')
+            ->setHowToApply('_HOW_TO_APPLY_')
+            ->setType('part-time')
+            ->setEmail('email@server.local')
+            ->setCategory($category)
+            ->setPublic(false)
+            ->setActivated(false);
+
+        $em->persist($job);
+        $em->flush($job);
+
+        $this->assertFalse($job->isActivated());
+        $this->assertFalse($job->isPublic());
+
+        $this->getClient()->request('POST', '/job/' . $job->getToken() . '/publish');
+
+        $em->refresh($job);
+        $this->assertTrue($job->isActivated());
     }
 
     private function getJobTokenFromRequest(): string
