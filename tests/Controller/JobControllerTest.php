@@ -190,8 +190,34 @@ class JobControllerTest extends BaseControllerTest
 
     public function testPublishActionPublishesJob(): void
     {
-        $this->markTestSkipped('It seems publishing is not working properly!');
+        $job = $this->createTestJob();
 
+        $client = $this->getClient();
+        $client->request('GET', '/job/' . $job->getToken());
+        $client->submitForm('Publish');
+
+        $em = $this->getContainer()->get('doctrine.orm.entity_manager');
+        $em->refresh($job);
+
+        $this->assertTrue($job->isActivated());
+    }
+
+    public function testDeleteActionDeletesTheJob(): void
+    {
+        $job = $this->createTestJob();
+
+        $client = $this->getClient();
+        $client->request('GET', '/job/' . $job->getToken());
+        $client->submitForm('Delete');
+
+        $em = $this->getContainer()->get('doctrine.orm.entity_manager');
+        $job = $em->getRepository(Job::class)->findOneBy(['id' => $job->getId()]);
+
+        $this->assertNull($job);
+    }
+
+    private function createTestJob(): Job
+    {
         $em = $this->getContainer()->get('doctrine.orm.entity_manager');
 
         $category = (new Category())
@@ -214,13 +240,7 @@ class JobControllerTest extends BaseControllerTest
         $em->persist($job);
         $em->flush($job);
 
-        $this->assertFalse($job->isActivated());
-        $this->assertFalse($job->isPublic());
-
-        $this->getClient()->request('POST', '/job/' . $job->getToken() . '/publish');
-
-        $em->refresh($job);
-        $this->assertTrue($job->isActivated());
+        return $job;
     }
 
     private function getJobTokenFromRequest(): string
