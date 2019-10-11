@@ -33,12 +33,14 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.1",
+        "liip/functional-test-bundle": "~2.0@alpha",
+        "mikey179/vfsStream": "^1.6",
+        "symfony/css-selector": "4.2.*",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*",
-        "symfony/web-server-bundle": "4.2.*",
-        "mikey179/vfsStream": "^1.6"
+        "symfony/web-server-bundle": "4.2.*"
     },
     "config": {
         "preferred-install": {
