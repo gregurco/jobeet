@@ -1,4 +1,4 @@
-     up:
+up:
 	docker-compose up -d
 
 stop:
@@ -9,9 +9,6 @@ php:
 
 mysql:
 	docker-compose exec mysql sh
-
-mailhog:
-	docker-compose exec mailhog sh
 
 rebuild:
 	docker-compose up -d --build --force-recreate
